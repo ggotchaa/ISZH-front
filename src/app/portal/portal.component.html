@@ -1,0 +1,41 @@
+<div class="container">
+  <ng-container>
+    <div>
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="8">
+          <nz-card class="custom-card" [ngStyle]="cardStyle">
+            <p>Учёт животных</p>
+            <a style="color: #77c48d" [routerLink]="['/animal-accounting']">Перейти</a>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="8">
+          <nz-card class="custom-card" [ngStyle]="cardStyle">
+            <p>Отчёты</p>
+            <a style="color: #77c48d" [routerLink]="['/reports']">Перейти</a>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="8">
+          <nz-card class="custom-card" [ngStyle]="cardStyle">
+            <p>Ветиринарная лаборатория</p>
+            <a style="color: #77c48d" [routerLink]="['/veterinary-lab']">Перейти</a>
+          </nz-card>
+        </div>
+      </div>
+      <div nz-row [nzGutter]="24">
+        <div nz-col [nzSpan]="8">
+          <nz-card class="custom-card" [ngStyle]="cardStyle">
+            <p>Справочники</p>
+            <a style="color: #77c48d" [routerLink]="['/directories']">Перейти</a>
+          </nz-card>
+        </div>
+        <div nz-col [nzSpan]="16">
+          <nz-card class="custom-card" [ngStyle]="cardStyle">
+            <p>Администрирование</p>
+            <a style="color: #77c48d" routerLink="/administration">Перейти</a>
+          </nz-card>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+  

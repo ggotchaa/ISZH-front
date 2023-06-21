@@ -1,0 +1,31 @@
+<div class="container">
+  <nz-row>
+    <div nz-col [nzSpan]="4">
+      <nz-sider nzCollapsible [nzCollapsedWidth]="80" [nzWidth]="200" class="sideMenuBar">
+        <ul nz-menu>
+          <li nz-menu-item (click)="showContent('users')">Пользователи</li>
+          <li nz-menu-item (click)="showContent('organizations')">Организации</li>
+          <li nz-menu-item (click)="showContent('roles')">Роли и Доступы</li>
+          <li nz-menu-item (click)="showContent('contracts')">Договора</li>
+        </ul>
+      </nz-sider>
+    </div>
+    <div nz-col [nzSpan]="20" style="background-color: white;">
+      <div class="content-container">
+        <div *ngIf="selectedMenu === 'users'">
+          <h2>Users Content</h2>
+        </div>
+        <div *ngIf="selectedMenu === 'organizations'">
+          <h2>Organizations Content</h2>
+        </div>
+        <div *ngIf="selectedMenu === 'roles'">
+          <h2>Roles and Access Content</h2>
+        </div>
+        <div *ngIf="selectedMenu === 'contracts'">
+          <h2>Contracts Content</h2>
+        </div>
+      </div>
+    </div>
+
+  </nz-row>
+</div>

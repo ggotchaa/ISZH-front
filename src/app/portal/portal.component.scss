@@ -1,0 +1,45 @@
+.container {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.header-menu {
+  display: flex;
+  padding: 30px;
+}
+
+p {
+  font-family: "Inter" sans-serif !important;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 44px;
+}
+.ant-col-16 {
+  flex: 0 0 66.66666667%;
+  max-width: 66.66666667%;
+  padding: 12px;
+}
+.ant-col-8 {
+  flex: 0 0 33.33333333%;
+  max-width: 33.33333333%;
+  padding: 12px;
+}
+
+.ant-row {
+  display: flex;
+  flex-flow: row wrap;
+  height: 224px;
+}
+
+.ant-card-body {
+  height: 100% !important;
+}
+.ant-col-8 :hover {
+  background: linear-gradient(0deg, #e9ffef, #e9ffef), #ffffff;
+  border-radius: 4px;
+}
+
+.ant-col-16 :hover {
+  background: linear-gradient(0deg, #e9ffef, #e9ffef), #ffffff;
+  border-radius: 4px;
+}

@@ -1,0 +1,77 @@
+.header-menu {
+  display: flex;
+}
+
+.menuIcon {
+  color: #17b9da;
+}
+.menuTitle {
+  width: 42px;
+  height: 16px;
+  font-family: "Inter" sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #17b9da;
+  padding-left: 10px;
+}
+
+.mainMenuButton {
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  gap: 8px;
+  width: 86px;
+  height: 36px;
+  background: #dcf3f8;
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  border-color: #dcf3f8;
+}
+.ant-layout-header {
+  height: 64px;
+  padding: 0 30px;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 64px;
+  background: white;
+}
+
+.ant-layout {
+  display: flex;
+  flex: auto;
+  flex-direction: column;
+  min-height: -webkit-fill-available;
+  background: #f0f2f5;
+}
+
+.breadcrumb {
+  padding-left: 50px;
+}
+
+.icon-with-desc {
+  display: flex;
+  align-items: center;
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../app/iszh-icons/iszh_main_icon.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-right: 10px;
+  }
+}
+
+.menu-row {
+  flex-flow: inherit;
+}
+
+.icon-desc {
+  line-height: normal;
+  margin-top: auto;
+  width: 70%
+}
