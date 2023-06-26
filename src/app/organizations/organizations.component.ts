@@ -54,7 +54,12 @@ export class OrganizationsComponent implements OnInit {
   ];
 
   isVisible = false;
-  modalTitle = '';
+  modalTitle = 'Добавить Организацию';
+
+  actions = [
+    { name: 'Edit', callback: this.onEdit },
+    { name: 'Delete', callback: this.onDelete }
+  ];
 
   constructor(private randomUserService: RandomUserService) {}
 
@@ -62,7 +67,7 @@ export class OrganizationsComponent implements OnInit {
     this.loading = true;
     this.randomUserService.getUsers(pageIndex, pageSize).subscribe(data => {
       this.loading = false;
-      this.total = data.results.length; // update this line
+      this.total = data.results.length; 
       this.listOfRandomUser = data.results;
     });
   }
@@ -77,7 +82,7 @@ export class OrganizationsComponent implements OnInit {
 
   openModal(): void {
     this.isVisible = true;
-    this.modalTitle = 'Добавить организацию';
+    this.modalTitle;
   }
 
   handleFormSubmit(): void {
@@ -88,6 +93,17 @@ export class OrganizationsComponent implements OnInit {
   handleModalCancel(): void {
     this.isVisible = false;
   }
+
+  onEdit(item: RandomUser): void {
+    console.log('Edit action', item);
+    // todo logic
+  }
+
+  onDelete(item: RandomUser): void {
+    console.log('Delete action', item);
+    // todo logic
+  }
+  
 
   ngOnInit(): void {
     this.loadDataFromServer(this.pageIndex, this.pageSize);

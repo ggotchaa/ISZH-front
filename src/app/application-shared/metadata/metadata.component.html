@@ -21,6 +21,9 @@
   <tbody>
     <tr *ngFor="let row of data">
       <td *ngFor="let column of columns">{{ getValue(row, column.key) }}</td>
+      <td>
+        <button *ngFor="let action of actions" (click)="executeAction(action, row)">{{ action.name }}</button>
+      </td>
     </tr>
   </tbody>
 </nz-table>

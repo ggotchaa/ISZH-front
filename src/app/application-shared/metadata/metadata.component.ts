@@ -9,6 +9,7 @@ import { NzTableQueryParams } from 'ng-zorro-antd/table';
 export class MetadataComponent implements OnInit {
   @Input() data: any[] = [];
   @Input() columns: { key: string, title: string, sort?: boolean, filter?: boolean }[] = [];
+  @Input() actions: { name: string, callback: (item: any) => void }[] = [];
   @Output() queryChange = new EventEmitter<NzTableQueryParams>();
   pageIndex: number = 1;
   pageSize: number = 10;
@@ -31,6 +32,10 @@ export class MetadataComponent implements OnInit {
       filter
     };
     this.queryChange.emit(queryParams);
+  }
+
+  executeAction(action: { name: string, callback: (item: any) => void }, item: any): void {
+    action.callback(item);
   }
 
   ngOnInit(): void {

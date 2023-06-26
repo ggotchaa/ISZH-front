@@ -16,7 +16,7 @@
 </nz-row>
 
 <nz-row>
-  <app-metadata [data]="listOfRandomUser" [columns]="columns" (queryChange)="onQueryParamsChange($event)"></app-metadata>
+  <app-metadata [data]="listOfRandomUser" [columns]="columns" [actions]="actions" (queryChange)="onQueryParamsChange($event)"></app-metadata>
 </nz-row>
 
 <app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle" (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">

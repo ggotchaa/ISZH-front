@@ -6,6 +6,14 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./add-organization-form.component.scss']
 })
 export class AddOrganizationFormComponent implements OnInit{
+
+  date = null;
+  selectedValue = null;
+
+  onChange(result: Date): void {
+    console.log('onChange: ', result);
+  }
+
   ngOnInit(): void {
     console.log('AddOrganizationFormComponent');
   }

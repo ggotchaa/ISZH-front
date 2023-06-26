@@ -119,7 +119,6 @@ registerLocaleData(en);
     NzDividerModule,
     NzBadgeModule,
   ],
-  exports: [AddOrganizationFormComponent],
   providers: [
     { provide: NZ_I18N, useValue: en_US }
   ],
