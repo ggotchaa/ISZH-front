@@ -1,0 +1,31 @@
+<nz-row style="background: white; height: 70px;">
+  <div class="setbar">
+    <nz-col [nzSpan]="4">
+      <button nz-button nzType="primary" class="addOrg" (click)="openModal()">
+        <span nz-icon nzType="plus" nzTheme="outline"></span>
+        Добавить организацию
+      </button>
+    </nz-col>
+    <nz-col [nzSpan]="16">
+      <input nz-input placeholder="Поиск по параметрам" [(ngModel)]="value" />
+    </nz-col>
+    <nz-col [nzSpan]="4">
+      <button nz-button nzType="primary">Настройки таблицы</button>
+    </nz-col>
+  </div>
+</nz-row>
+
+<nz-row>
+  <app-metadata [data]="listOfRandomUser" [columns]="columns" (queryChange)="onQueryParamsChange($event)"></app-metadata>
+</nz-row>
+
+<app-dynamic-modal [isVisible]="isVisible" [modalTitle]="modalTitle" [modalContent]="modalContent" 
+  (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+  <app-add-organization-form></app-add-organization-form>
+</app-dynamic-modal>
+
+<!-- <app-dynamic-modal [title]="modalTitle" [isVisible]="isVisible" (nzOnCancel)="handleModalCancel()" (submit)="handleFormSubmit($event)">
+  <app-add-organization-form></app-add-organization-form>
+</app-dynamic-modal> -->
+
+<router-outlet></router-outlet>

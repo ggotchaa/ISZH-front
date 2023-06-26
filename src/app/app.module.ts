@@ -51,6 +51,11 @@ import {NzTabsModule} from 'ng-zorro-antd/tabs';
 import { NzMenuModule } from 'ng-zorro-antd/menu'
 import { AdministrationComponent } from './administration/administration.component';
 import { BreadcrumbComponent } from './application-shared/breadcrumb/breadcrumb.component';
+import { OrganizationsComponent } from './organizations/organizations.component';
+import { UsersComponent } from './users/users.component';
+import { MetadataComponent } from './application-shared/metadata/metadata.component';
+import { DynamicModalComponent } from './application-shared/dynamic-modal/dynamic-modal.component';
+import { AddOrganizationFormComponent } from './application-shared/dynamic-modal/modal-contents/add-organization-form/add-organization-form.component';
 
 registerLocaleData(en);
 
@@ -60,6 +65,11 @@ registerLocaleData(en);
     PortalComponent,
     AdministrationComponent,
     BreadcrumbComponent,
+    OrganizationsComponent,
+    UsersComponent,
+    MetadataComponent,
+    DynamicModalComponent,
+    AddOrganizationFormComponent,
   ],
   imports: [
     BrowserModule,

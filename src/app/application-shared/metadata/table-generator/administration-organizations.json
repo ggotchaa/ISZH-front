@@ -1,0 +1,6 @@
+[
+  { "key": "name.first", "title": "First Name", "sort": true, "filter": false },
+  { "key": "name.last", "title": "Last Name", "sort": true , "filter": false},
+  { "key": "gender", "title": "Gender", "filter": true },
+  { "key": "email", "title": "Email", "sort": true, "filter": false }
+]

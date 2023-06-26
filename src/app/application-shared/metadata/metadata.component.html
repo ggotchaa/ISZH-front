@@ -1,0 +1,26 @@
+<nz-table
+  [nzData]="data"
+  [nzPageSize]="pageSize"
+  [nzPageIndex]="pageIndex"
+  (nzPageIndexChange)="pageIndex = $event"
+  (nzPageSizeChange)="pageSize = $event"
+  (nzQueryParamsChange)="onQueryParamsChange(pageIndex, pageSize, sort, filter)"
+>
+  <thead>
+    <tr>
+      <th
+        *ngFor="let column of columns"
+        [nzColumnKey]="column.key"
+        [nzSortFn]="column.sort || null"
+        [nzFilters]="column.filter ? [ { text: 'Yes', value: 'true' }, { text: 'No', value: 'false' } ] : []"
+      >
+        {{ column.title }}
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of data">
+      <td *ngFor="let column of columns">{{ getValue(row, column.key) }}</td>
+    </tr>
+  </tbody>
+</nz-table>

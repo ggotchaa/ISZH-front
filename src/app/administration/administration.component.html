@@ -1,31 +1,28 @@
 <div class="container">
   <nz-row>
-    <div nz-col [nzSpan]="4">
-      <nz-sider nzCollapsible [nzCollapsedWidth]="80" [nzWidth]="200" class="sideMenuBar">
-        <ul nz-menu>
-          <li nz-menu-item (click)="showContent('users')">Пользователи</li>
-          <li nz-menu-item (click)="showContent('organizations')">Организации</li>
-          <li nz-menu-item (click)="showContent('roles')">Роли и Доступы</li>
-          <li nz-menu-item (click)="showContent('contracts')">Договора</li>
+    <div class="pc-tab">
+      <input id="users" type="radio" name="pct" [checked]="selectedTab === 'users'" />
+      <input id="organizations" type="radio" name="pct" [checked]="selectedTab === 'organizations'" />
+      <input id="roles-permissions" type="radio" name="pct" />
+      <input id="contracts" type="radio" name="pct" />
+      <nav>
+        <ul>
+          <li class="users">
+            <label for="users" (click)="showContent('users')">Пользователи</label>
+          </li>
+          <li class="organizations">
+            <label for="organizations" (click)="showContent('organizations')">Организации</label>
+          </li>
+          <li class="roles-permissions">
+            <label for="roles-permissions">Роли и Доступы</label>
+          </li>
+          <li class="contracts">
+            <label for="contracts">Договора</label>
+          </li>
         </ul>
-      </nz-sider>
+      </nav>
+      
     </div>
-    <div nz-col [nzSpan]="20" style="background-color: white;">
-      <div class="content-container">
-        <div *ngIf="selectedMenu === 'users'">
-          <h2>Users Content</h2>
-        </div>
-        <div *ngIf="selectedMenu === 'organizations'">
-          <h2>Organizations Content</h2>
-        </div>
-        <div *ngIf="selectedMenu === 'roles'">
-          <h2>Roles and Access Content</h2>
-        </div>
-        <div *ngIf="selectedMenu === 'contracts'">
-          <h2>Contracts Content</h2>
-        </div>
-      </div>
-    </div>
-
+    <router-outlet></router-outlet>
   </nz-row>
 </div>
