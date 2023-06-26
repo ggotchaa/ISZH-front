@@ -19,13 +19,8 @@
   <app-metadata [data]="listOfRandomUser" [columns]="columns" (queryChange)="onQueryParamsChange($event)"></app-metadata>
 </nz-row>
 
-<app-dynamic-modal [isVisible]="isVisible" [modalTitle]="modalTitle" [modalContent]="modalContent" 
-  (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+<app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle" (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
   <app-add-organization-form></app-add-organization-form>
 </app-dynamic-modal>
-
-<!-- <app-dynamic-modal [title]="modalTitle" [isVisible]="isVisible" (nzOnCancel)="handleModalCancel()" (submit)="handleFormSubmit($event)">
-  <app-add-organization-form></app-add-organization-form>
-</app-dynamic-modal> -->
 
 <router-outlet></router-outlet>

@@ -55,7 +55,6 @@ export class OrganizationsComponent implements OnInit {
 
   isVisible = false;
   modalTitle = '';
-  modalContent = '';
 
   constructor(private randomUserService: RandomUserService) {}
 
@@ -79,7 +78,6 @@ export class OrganizationsComponent implements OnInit {
   openModal(): void {
     this.isVisible = true;
     this.modalTitle = 'Добавить организацию';
-    this.modalContent = '';
   }
 
   handleFormSubmit(): void {

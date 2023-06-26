@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-modal',
@@ -6,14 +6,22 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./dynamic-modal.component.scss']
 })
 export class DynamicModalComponent implements OnInit {
-  @Input() isVisible!: boolean;
   @Input() modalTitle!: string;
-  @Input() modalContent!: string;
+  constructor(private el: ElementRef) { }
+  
+  @Input() 
+  set isVisible(value: boolean) {
+    this._isVisible = value;
+    this.isVisibleChange.emit(value);
+  }
+  get isVisible() {
+    return this._isVisible;
+  }
+  private _isVisible!: boolean;
 
+  @Output() isVisibleChange = new EventEmitter<boolean>();
   @Output() onCancel = new EventEmitter<void>();
   @Output() onConfirm = new EventEmitter<void>();
-
-  constructor() { }
 
   ngOnInit(): void {}
 
@@ -25,5 +33,8 @@ export class DynamicModalComponent implements OnInit {
   handleOk(): void {
     this.isVisible = false;
     this.onConfirm.emit();
+  }
+  ngAfterContentInit() {
+    console.log('Content:', this.el.nativeElement.innerHTML);
   }
 }
