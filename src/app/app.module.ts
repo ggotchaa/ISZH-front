@@ -56,6 +56,8 @@ import { UsersComponent } from './users/users.component';
 import { MetadataComponent } from './application-shared/metadata/metadata.component';
 import { DynamicModalComponent } from './application-shared/dynamic-modal/dynamic-modal.component';
 import { AddOrganizationFormComponent } from './application-shared/dynamic-modal/modal-contents/add-organization-form/add-organization-form.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 registerLocaleData(en);
 
@@ -70,6 +72,8 @@ registerLocaleData(en);
     MetadataComponent,
     DynamicModalComponent,
     AddOrganizationFormComponent,
+    HomeComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="centered-card">
+    <nz-row class="login-card-row">
+      <nz-card style="width: 300px;">
+        <div nz-title>Авторизация в системе</div>
+        <form >
+          <div class="login-body">
+            <div class="form-group">
+              <input nz-input placeholder="Логин" [(ngModel)]="username" name="username" required>
+            </div>
+            <div class="form-group">
+              <nz-input-group [nzSuffix]="suffixTemplate">
+                <input
+                  [type]="passwordVisible ? 'text' : 'password'"
+                  nz-input
+                  placeholder="Пароль"
+                  [(ngModel)]="password"
+                  name="password"
+                  required
+                />
+              </nz-input-group>
+            </div>
+            <div class="form-group">
+              <a href="#">Забыли пароль?</a>
+            </div>
+          </div>
+          <div nz-footer class="login-footer">
+            <button nz-button nzType="primary" type="submit" (click)="login()">Войти</button>
+            <span>или</span>
+            <button nz-button (click)="loginWithDigitalSignature()">Войти с ЭЦП</button>
+          </div>
+        </form>
+      </nz-card>
+    </nz-row>
+  </div>
+</div>
+<ng-template #suffixTemplate>
+  <span nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></span>
+</ng-template>

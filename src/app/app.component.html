@@ -12,10 +12,19 @@
           Информационная система «Идентификация сельскохозяйственных животных»
         </p>
       </div>
-      <div nz-col [nzSpan]="8">search</div>
+      <div nz-col [nzSpan]="8">
+        <nz-input-group [nzSuffix]="suffixIconSearch">
+          <input type="text" nz-input placeholder="Поиск" />
+        </nz-input-group>
+      </div>
       <div nz-col [nzSpan]="2">language</div>
       <div nz-col [nzSpan]="2">settings</div>
-      <div nz-col [nzSpan]="4">user info and exit</div>
+      <div nz-col [nzSpan]="4">
+        <button nz-button nzType="primary" class="loginButton" routerLink="/login">
+          <span nz-icon nzType="login" nzTheme="outline" class="loginIcon"></span>
+          <a class="menuTitle">Войти</a>
+        </button>
+      </div>
     </nz-header>
   </nz-row>
   <nz-row>
@@ -23,3 +32,6 @@
   </nz-row>
   <router-outlet></router-outlet>
 </nz-layout>
+<ng-template #suffixIconSearch>
+  <span nz-icon nzType="search"></span>
+</ng-template>
