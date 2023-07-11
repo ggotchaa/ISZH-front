@@ -11,28 +11,18 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' }, // Redirect to the home page
   { path: 'home', component: HomeComponent }, // Home page route
   { path: 'login', component: LoginComponent }, // Login page route
+  { path: 'portal', component: PortalComponent }, // Portal page route
   {
-    path: 'portal',
-    component: PortalComponent,
+    path: 'administration',
+    component: AdministrationComponent,
     children: [
-      {
-        path: 'administration',
-        component: AdministrationComponent,
-        children: [
-          {
-            path: 'organizations',
-            component: OrganizationsComponent
-          },
-          {
-            path: 'users',
-            component: UsersComponent
-          }
-        ]
-      }
+      { path: 'users', component: UsersComponent },
+      { path: 'organizations', component: OrganizationsComponent },
+      // ...other routes...
     ]
-  },
-  
+  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

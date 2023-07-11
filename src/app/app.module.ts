@@ -58,6 +58,9 @@ import { DynamicModalComponent } from './application-shared/dynamic-modal/dynami
 import { AddOrganizationFormComponent } from './application-shared/dynamic-modal/modal-contents/add-organization-form/add-organization-form.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
+
 
 registerLocaleData(en);
 
@@ -77,6 +80,8 @@ registerLocaleData(en);
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    NzNotificationModule,
     AppRoutingModule,
     FormsModule,
     NzMenuModule,

@@ -3,11 +3,14 @@
     <nz-row class="login-card-row">
       <nz-card style="width: 300px;">
         <div nz-title>Авторизация в системе</div>
-        <form >
+        <form>
           <div class="login-body">
-            <div class="form-group">
+            <!-- Show the username input field only if showPasswordForm is false -->
+            <div *ngIf="!showPasswordForm" class="form-group">
               <input nz-input placeholder="Логин" [(ngModel)]="username" name="username" required>
             </div>
+
+            <!-- Show the password input field -->
             <div class="form-group">
               <nz-input-group [nzSuffix]="suffixTemplate">
                 <input
@@ -20,16 +23,31 @@
                 />
               </nz-input-group>
             </div>
+
+            <!-- Show the "Забыли пароль?" (Forgot password?) link -->
             <div class="form-group">
               <a href="#">Забыли пароль?</a>
             </div>
           </div>
           <div nz-footer class="login-footer">
-            <button nz-button nzType="primary" type="submit" (click)="login()">Войти</button>
-            <span>или</span>
-            <button nz-button (click)="loginWithDigitalSignature()">Войти с ЭЦП</button>
+            <!-- Show the "Войти" (Login) button if showPasswordForm is false -->
+            <button nz-button nzType="primary" type="submit" (click)="login()" *ngIf="!showPasswordForm">Войти</button>
+            
+            <!-- Show the "Войти с ЭЦП" (Login with Digital Signature) button if showPasswordForm is false -->
+            <button nz-button (click)="toggleShowPasswordForm()" *ngIf="!showPasswordForm">Войти с ЭЦП</button>
+            
+            <!-- Show the "Войти" (Login) button if showPasswordForm is true -->
+            <button nz-button class="login-form-button mr-2 w-100" (click)="login()" [nzType]="'primary'" [nzLoading]="loadingECPload" *ngIf="showPasswordForm">
+              Войти
+            </button>
+            
+            <!-- Show the "Отмена" (Cancel) button if showPasswordForm is true -->
+            <button (click)="toggleShowPasswordForm()" nz-button class="login-form-button mr-2 w-100" [nzType]="'default'" *ngIf="showPasswordForm">
+              Отмена
+            </button>
           </div>
         </form>
+
       </nz-card>
     </nz-row>
   </div>

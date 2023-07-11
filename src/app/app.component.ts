@@ -7,5 +7,5 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng-zorro-app';
+ 
 }

@@ -10,37 +10,23 @@ export class AdministrationComponent implements OnInit{
   constructor(private router: Router, private route: ActivatedRoute) {}
   selectedMenu: string | undefined;
   selectedMenuItem: string | undefined;
-  selectedTabIndex: number = 0;
   selectedTab: string | null = null;
 
   onTabChange(event: number): void {
-    this.selectedTabIndex = event;
   }
 
   showContent(menuItem: string): void {
     this.selectedMenu = menuItem;
-
-    if (menuItem === 'organizations') {
-      this.router.navigate(['/administration/organizations']);
-    }
-    if (menuItem === 'users') {
-      this.router.navigate(['/administration/users']);
-    }
-    // if (menuItem === 'roles-permissions') {
-    //   this.router.navigate(['/administration/roles-permissions']);
-    // }
-    // if (menuItem === 'contracts') {
-    //   this.router.navigate(['/administration/contracts']);
-    // }
+    this.router.navigate([`/administration/${menuItem}`]);
   }
+  
 
   openContent(event: { item: { key: string } }): void {
     this.selectedMenuItem = event.item.key;
   }
   
   ngOnInit(): void {
-    this.route.url.subscribe(url => {
-      this.selectedTab = url.length > 0 ? url[0].path : 'users';
-    });
+    this.selectedTab = this.route.snapshot.firstChild?.routeConfig?.path ?? 'users';
   }
+  
 }
