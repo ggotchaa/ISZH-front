@@ -2,9 +2,6 @@
   display: flex;
 }
 
-.menuIcon {
-  color: #17b9da;
-}
 .menuTitle {
   width: 42px;
   height: 16px;
@@ -12,7 +9,7 @@
   font-weight: 700;
   font-size: 14px;
   line-height: 16px;
-  color: #17b9da;
+  color: #17B9DA;
   padding-left: 10px;
 }
 
@@ -64,6 +61,21 @@
     margin-right: 10px;
   }
 }
+.settings-icon-desc {
+  line-height: normal;
+  margin-top: auto;
+  font-weight: 600;
+  display: inline;
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url("../app/iszh-icons/mdi_cog-outline.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+}
 
 .menu-row {
   flex-flow: inherit;
@@ -74,4 +86,26 @@
   margin-top: auto;
   width: 70%;
   font-weight: 600;
+  display: inline;
+}
+
+.loginButton {
+  display: inline;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 4px;
+  background: #17B9DA;
+  border-color: #17B9DA;
+  margin-left: 50px;
+}
+
+.loginTitle {
+  width: 42px;
+  height: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: white;
+  padding-left: 10px;
 }

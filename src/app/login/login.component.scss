@@ -1,31 +1,39 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .centered-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-body {
-    padding: 16px;
-  }
-  
-  .form-group {
-    margin-bottom: 16px;
-  }
-  
-  a {
-    color: #1890ff;
-  }
-  
-  .login-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-  }
+  padding: 16px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+}
+
+a {
+  color: #17B9DA;
+  font-size: 12px;
+font-style: normal;
+font-weight: 700;
+line-height: 14px;
+}
+
+.login-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.logn-card {
+  border-radius: 12px;
+}

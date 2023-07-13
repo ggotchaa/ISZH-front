@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { XmlSignService } from './xmlsign.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   private apiUrl = 'http://localhost:8081/api/auth';
-  constructor(private http: HttpClient, private xmlSignService: XmlSignService) {}
+  constructor(private http: HttpClient, private xmlSignService: XmlSignService, private message: NzNotificationService) {}
 
   login(username?: string, password?: string): Observable<any> {
     const body = {
@@ -19,15 +20,6 @@ export class AuthService {
     return this.http.post(`${this.apiUrl}/login`, body);
   }
 
-  // loginWithDigitalSignature(password: string, xml: string): Observable<any> {
-  //   const body = {
-  //     grantType: 'sign_password',
-  //     password: password,
-  //     xml: xml
-  //   };
-  //   return this.http.post(`${this.apiUrl}/login`, body);
-  // }
-
   loginECPPwd(password: string, xml: string): Observable<any> {
     const body = {
       grantType: 'sign_password',
@@ -36,10 +28,6 @@ export class AuthService {
     };
     return this.http.post(`${this.apiUrl}/login`, body);
   }
-    // this.http.post(`${this.apiUrl}/login`, data, {
-    //   observe: 'response',
-    //   headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
-    // });
 
   loginWithDigitalSignature = () => {
     const webSocket = new WebSocket('wss://127.0.0.1:13579/');
@@ -60,10 +48,10 @@ export class AuthService {
     webSocket.onclose = (event) => {
       if (event.wasClean) {
       } else {
-        // this.message.error(
-        //   'NCA Layer не запущен',
-        //   'Запустите NCA Layer и попробуйте снова'
-        // );
+        this.message.error(
+          'NCA Layer не запущен',
+          'Запустите NCA Layer и попробуйте снова'
+        );
       }
       return null;
     };

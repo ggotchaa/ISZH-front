@@ -1,13 +1,19 @@
 <div class="container">
   <div class="centered-card">
     <nz-row class="login-card-row">
-      <nz-card style="width: 300px;">
+      <nz-card style="width: 300px" class="logn-card">
         <div nz-title>Авторизация в системе</div>
-        <form>
+        <form [formGroup]="passwordForm">
           <div class="login-body">
             <!-- Show the username input field only if showPasswordForm is false -->
             <div *ngIf="!showPasswordForm" class="form-group">
-              <input nz-input placeholder="Логин" [(ngModel)]="username" name="username" required>
+              <input
+                nz-input
+                placeholder="Логин"
+                formControlName="username"
+                name="username"
+                required
+              />
             </div>
 
             <!-- Show the password input field -->
@@ -17,7 +23,7 @@
                   [type]="passwordVisible ? 'text' : 'password'"
                   nz-input
                   placeholder="Пароль"
-                  [(ngModel)]="password"
+                  formControlName="password"
                   name="password"
                   required
                 />
@@ -31,27 +37,57 @@
           </div>
           <div nz-footer class="login-footer">
             <!-- Show the "Войти" (Login) button if showPasswordForm is false -->
-            <button nz-button nzType="primary" type="submit" (click)="login()" *ngIf="!showPasswordForm">Войти</button>
-            
-            <!-- Show the "Войти с ЭЦП" (Login with Digital Signature) button if showPasswordForm is false -->
-            <button nz-button (click)="toggleShowPasswordForm()" *ngIf="!showPasswordForm">Войти с ЭЦП</button>
-            
-            <!-- Show the "Войти" (Login) button if showPasswordForm is true -->
-            <button nz-button class="login-form-button mr-2 w-100" (click)="login()" [nzType]="'primary'" [nzLoading]="loadingECPload" *ngIf="showPasswordForm">
+            <button
+              nz-button
+              nzType="primary"
+              type="submit"
+              (click)="login()"
+              *ngIf="!showPasswordForm"
+            >
               Войти
             </button>
-            
+
+            <!-- Show the "Войти с ЭЦП" (Login with Digital Signature) button if showPasswordForm is false -->
+            <button
+              nz-button
+              (click)="toggleShowPasswordForm()"
+              *ngIf="!showPasswordForm"
+            >
+              Войти с ЭЦП
+            </button>
+
+            <!-- Show the "Войти" (Login) button if showPasswordForm is true -->
+            <button
+              nz-button
+              class="login-form-button mr-2 w-100"
+              (click)="login()"
+              [nzType]="'primary'"
+              [nzLoading]="loadingECPload"
+              *ngIf="showPasswordForm"
+            >
+              Войти
+            </button>
+
             <!-- Show the "Отмена" (Cancel) button if showPasswordForm is true -->
-            <button (click)="toggleShowPasswordForm()" nz-button class="login-form-button mr-2 w-100" [nzType]="'default'" *ngIf="showPasswordForm">
+            <button
+              (click)="toggleShowPasswordForm()"
+              nz-button
+              class="login-form-button mr-2 w-100"
+              [nzType]="'default'"
+              *ngIf="showPasswordForm"
+            >
               Отмена
             </button>
           </div>
         </form>
-
       </nz-card>
     </nz-row>
   </div>
 </div>
 <ng-template #suffixTemplate>
-  <span nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'" (click)="passwordVisible = !passwordVisible"></span>
+  <span
+    nz-icon
+    [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+    (click)="passwordVisible = !passwordVisible"
+  ></span>
 </ng-template>
