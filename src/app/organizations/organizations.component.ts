@@ -58,7 +58,8 @@ export class OrganizationsComponent implements OnInit {
 
   actions = [
     { name: 'Edit', callback: this.onEdit },
-    { name: 'Delete', callback: this.onDelete }
+    { name: 'Delete', callback: this.onDelete },
+    { name: 'Изменить', callback: this.openEditModal }
   ];
 
   constructor(private randomUserService: RandomUserService) {}
@@ -81,6 +82,11 @@ export class OrganizationsComponent implements OnInit {
   }
 
   openModal(): void {
+    this.isVisible = true;
+    this.modalTitle;
+  }
+
+  openEditModal(): void {
     this.isVisible = true;
     this.modalTitle;
   }

@@ -15,6 +15,7 @@ export class MetadataComponent implements OnInit {
   pageSize: number = 10;
   sort: any;
   filter: any;
+  selectedRow: any;
 
   constructor() {
     this.getValue = this.getValue.bind(this);
@@ -35,8 +36,10 @@ export class MetadataComponent implements OnInit {
   }
 
   executeAction(action: { name: string, callback: (item: any) => void }, item: any): void {
+    this.selectedRow = item;
     action.callback(item);
   }
+  
 
   ngOnInit(): void {
   }
