@@ -60,7 +60,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
-
+import { AddUsersFormComponent } from './application-shared/dynamic-modal/modal-contents/add-users-form/add-users-form.component';
 
 registerLocaleData(en);
 
@@ -77,6 +77,7 @@ registerLocaleData(en);
     AddOrganizationFormComponent,
     HomeComponent,
     LoginComponent,
+    AddUsersFormComponent,
   ],
   imports: [
     BrowserModule,

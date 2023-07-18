@@ -1,0 +1,154 @@
+<form #form="ngForm">
+  <nz-form-item>
+    <nz-form-control class="checkbox-container">
+      <input class="form-checkboxes" type="checkbox" id="checkbox1" [(ngModel)]="isPhysUser" name="checkbox1" />
+      <label for="checkbox1">Физическое лицо</label>
+      <input class="form-checkboxes" type="checkbox" id="checkbox2" [(ngModel)]="isJuridUser" name="checkbox2" />
+      <label for="checkbox2">Юридическое лицо</label>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">ИИН*</label>
+      <input class="input-container" type="text" id="iin" [(ngModel)]="iin" name="iin" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Фамилия</label>
+      <input class="input-container" type="text" id="lastName" [(ngModel)]="lastName" name="lastName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Имя</label>
+      <input class="input-container" type="text" id="firstName" [(ngModel)]="firstName" name="firstName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Отчество</label>
+      <input class="input-container" type="text" id="middleName" [(ngModel)]="middleName" name="middleName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Дата рождения</label>
+      <input class="input-container" type="date" id="birthDate" [(ngModel)]="birthDate" name="birthDate" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">E-mail*</label>
+      <input class="input-container" type="text" id="email" [(ngModel)]="email" name="email" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Мобильный телефон*</label>
+      <input class="input-container" type="text" id="mobile" [(ngModel)]="mobile" name="mobile" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Номер документа*</label>
+      <input class="input-container" type="text" id="docNumber" [(ngModel)]="docNumber" name="docNumber" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Дата выдачи документа*</label>
+      <input class="input-container" type="date" id="docGetDate" [(ngModel)]="docGetDate" name="docGetDate" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Документ выдан*</label>
+      <input class="input-container" type="text" id="docGetBy" [(ngModel)]="docGetBy" name="docGetBy" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">КАТО*</label>
+      <input class="input-container" type="text" id="kato" [(ngModel)]="kato" name="kato" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Страна владельца*</label>
+      <input class="input-container" type="text" id="country" [(ngModel)]="country" name="country" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Почтовый индекс</label>
+      <input class="input-container" type="text" id="mailIndex" [(ngModel)]="mailIndex" name="mailIndex" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Наименование улицы</label>
+      <input class="input-container" type="text" id="streetName" [(ngModel)]="streetName" name="streetName" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Номер дома</label>
+      <input class="input-container" type="text" id="houseNumber" [(ngModel)]="houseNumber" name="houseNumber" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Номер квартиры</label>
+      <input class="input-container" type="text" id="flatNumber" [(ngModel)]="flatNumber" name="flatNumber" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Организация*</label>
+      <input class="input-container" type="text" id="organization" [(ngModel)]="organization" name="organization" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Система*</label>
+      <input class="input-container" type="text" id="system" [(ngModel)]="system" name="system" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Роль*</label>
+      <input class="input-container" type="text" id="role" [(ngModel)]="role" name="role" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Права*</label>
+      <input class="input-container" type="text" id="rights" [(ngModel)]="rights" name="rights" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Договор</label>
+      <input class="input-container" type="text" id="contract" [(ngModel)]="contract" name="contract" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Дата начала действия роли*</label>
+      <input class="input-container" type="date" id="startRoleDate" [(ngModel)]="startRoleDate" name="startRoleDate" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-input">
+      <label for="inputField">Дата окончания действия роли</label>
+      <input class="input-container" type="date" id="endRoleDate" [(ngModel)]="endRoleDate" name="endRoleDate" />
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control class="form-buttons">
+      <button class="button">Добавить</button>
+      <button class="button">Отменить</button>
+    </nz-form-control>
+  </nz-form-item>
+</form>
