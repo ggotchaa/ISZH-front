@@ -60,6 +60,8 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { AnimalAccountingComponent } from './animal-accounting/animal-accounting.component';
+import { FilterModalComponent } from './filter-modal/filter-modal.component';
 
 
 registerLocaleData(en);
@@ -77,6 +79,8 @@ registerLocaleData(en);
     AddOrganizationFormComponent,
     HomeComponent,
     LoginComponent,
+    AnimalAccountingComponent,
+    FilterModalComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,144 @@
+<div class="container">
+  <div>
+    <button nz-button nzType="default" nzTheme="outline" class="headBtn" style="width: 114px">Статистика</button>
+    <button nz-button nzType="default" nzTheme="outline" class="headBtn" style="width: 157px;">Реестр животных</button>
+  </div>
+  <div class="container-fluid">
+    <div class="container-up">
+      <button nz-button nzType="default" class="addAnimalsBtn">
+        <span nz-icon nzType="plus" nzTheme="outline" style="width: 20px; height: 20px"></span>
+        Добавить животных
+      </button>
+      <nz-input-group [nzPrefix]="prefixIconSearch" [nzSuffix]="suffixIconFilter" class="searchInput">
+        <input class="inputText" type="text" nz-input placeholder="Поиск по параметрам"/>
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <span nz-icon nzType="search" style="color: #17B9DA; margin-right: 5px"></span>
+      </ng-template>
+      <ng-template #suffixIconFilter>
+        <span nz-icon nzType="filter" nzTheme="fill" style="color: black; margin-right: 5px"></span>
+        <p class="filters" (click)="showModalFilter()">Фильтры</p>
+      </ng-template>
+      <button nz-button nzType="default" class="tableSettingBtn" (click)="showModalSetting()">
+        <span nz-icon nzType="setting" nzTheme="outline" style="width: 20px; height: 20px"></span>
+        Настройки таблицы
+      </button>
+      <nz-modal nzTitle="Настройка таблицы" nzWidth="468px" nzHeight="328px" [(nzVisible)]="isVisibleSetting"
+                (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+        <ng-container *nzModalContent>
+          <p class="tableSettingText">Количество строк: </p>
+          <nz-button-group style="margin-bottom: 15px">
+            <button nz-button nzType="default" class="stringBtn">15</button>
+            <button nz-button nzType="default" class="stringBtn">30</button>
+            <button nz-button nzType="default" class="stringBtn">45</button>
+            <button nz-button nzType="default" class="stringBtn">60</button>
+          </nz-button-group>
+          <p class="tableSettingText">Отображать столбцы: </p>
+          <label nz-checkbox formControlName="remember">
+            <span>Label</span>
+          </label>
+          <label nz-checkbox formControlName="remember">
+            <span>Label</span>
+          </label>
+        </ng-container>
+        <div *nzModalFooter>
+          <button class="modalBtn" style="background-color: #22222224; width: 110px" nz-button nzType="default"
+                  (click)="handleCancel()">Сбросить
+          </button>
+          <button class="modalBtn" style="background-color: #77C48D; color: white; width: 123px" nz-button
+                  nzType="default" (click)="handleOk()">Применить
+          </button>
+        </div>
+      </nz-modal>
+      <nz-modal nzTitle="Фильтры" nzWidth="868px" nzHeight="830px" [(nzVisible)]="isVisibleFilter"
+                (nzOnCancel)="handleCancelFilter()" (nzOnOk)="handleOkFilter()">
+        <ng-container *nzModalContent>
+          <div style="display: flex;">
+            <div>
+              <p class="modalInputText">Регион: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите регион" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Владелец: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите владельца" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Порода: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите породу" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Тип идентификации: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите тип" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">ИНЖ: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Укажите ИНЖ" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Дата рождения: </p>
+              <nz-date-picker class="modalInput" nzPlaceHolder="дд.мм.гггг."></nz-date-picker>
+              <p class="modalInputText">Статус: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите статус" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Дата снятия с учета: </p>
+              <nz-date-picker class="modalInput" nzPlaceHolder="дд.мм.гггг."></nz-date-picker>
+              <p class="modalInputText">Карантировано: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите значение" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Да'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Нет'"></nz-option>
+              </nz-select>
+            </div>
+            <div>
+              <p class="modalInputText">ИИН/БИН владельца: </p>
+              <input nz-input class="modalInput" placeholder="Введите ИИН/БИН владельца"/>
+              <p class="modalInputText">Вид животного: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите вид" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Направление: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите направление" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Страна происхождения: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите страну" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Пол: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите пол" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+              <p class="modalInputText">Возраст: </p>
+              <input nz-input class="modalInput" placeholder="Укажите возраст"/>
+              <p class="modalInputText">Дата регистрации: </p>
+              <nz-date-picker class="modalInput" nzPlaceHolder="дд.мм.гггг."></nz-date-picker>
+              <p class="modalInputText">Зеленый коридор: </p>
+              <nz-select nzSize="large" nzPlaceHolder="Выберите значение" class="modalInput">
+                <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+                <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+              </nz-select>
+            </div>
+          </div>
+        </ng-container>
+        <div *nzModalFooter>
+          <button class="modalBtn" style="background-color: #22222224; width: 110px" nz-button nzType="default"
+                  (click)="handleCancelFilter()">Сбросить
+          </button>
+          <button class="modalBtn" style="background-color: #77C48D; color: white; width: 123px" nz-button
+                  nzType="default" (click)="handleOkFilter()">Применить
+          </button>
+        </div>
+      </nz-modal>
+    </div>
+  </div>
+</div>

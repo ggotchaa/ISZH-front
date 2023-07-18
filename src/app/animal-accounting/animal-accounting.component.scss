@@ -1,0 +1,94 @@
+.container {
+  margin: 50px 0 0 72px;
+}
+.headBtn {
+  height: 48px;
+  border-radius: 4px 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #17B9DA;
+  font-family: Inter, sans-serif;
+  border: 0;
+}
+.container-fluid {
+  background-color: white;
+  width: 1288px;
+  height: 729px;
+  padding: 32px 24px 24px 24px;
+}
+.container-up {
+  display: flex;
+  width: 1240px;
+  height: 48px;
+
+}
+.addAnimalsBtn {
+  border-radius: 4px;
+  background-color: #77C48D;
+  height: 48px;
+  width: 205px;
+  color: white;
+  border: 0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.searchInput {
+  height: 48px;
+  width: 784px;
+  border-radius: 4px;
+  margin: 0 24px 0 24px;
+
+}
+.inputText {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+.filters {
+  margin: auto;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+}
+.tableSettingBtn {
+  border-radius: 4px;
+  height: 48px;
+  width: 205px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.tableSettingText{
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  margin-bottom: 20px;
+}
+.stringBtn {
+  height: 39px;
+  width: 53px;
+  color: #17B9DA;
+  border-color: #17B9DA;
+}
+.modalBtn {
+  height: 39px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Inter, sans-serif;
+  margin: 0 auto;
+}
+.modalInput {
+  width: 404px;
+  height: 40px;
+  margin: 0px 16px 16px 0px;
+  border-radius: 4px;
+}
+.modalInputText {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+}
+
+
