@@ -1,0 +1,82 @@
+::ng-deep .ant-row {
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: column;
+}
+
+.list-users-text{
+    background-color: #ffffff;
+    display: flex;
+}
+
+.text-container{
+    align-self: center;
+    margin-left: 40%;
+}
+
+.setbar {
+    align-items: center;
+    align-self: stretch;
+    display: flex;
+    gap: 24px;
+    position: relative;
+    margin-left: 40px;
+}
+
+.addUser{
+    border-radius: 5px;
+    background: #17b9da;
+    border-color: #17b9da;
+    box-shadow: #1f6978 0px 5px 5px 0px;
+    width: max-content;
+    height: max-content;
+}
+
+.addUser:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
+    color: hsl(0, 0%, 100%);
+    box-shadow: #27bcda 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+.export-excel-button{
+    border-radius: 5px;
+    background: #17b9da;
+    border-color: #17b9da;
+    box-shadow: #1f6978 0px 5px 5px 0px;
+    color: #ffffff;
+    width: max-content;
+    height: max-content;
+}
+
+.service-button{
+    border-radius: 0px;
+    background: #17b9da;
+    border-color: #5f9daa;
+    box-shadow: #1f6978 0px 5px 5px 0px;
+    color: #ffffff;
+    width: 80px;
+    height: 30px;
+}
+
+.service-buttons-container {
+    display: flex;
+    margin-left: 40px;
+}
+
+.export-excel-button:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
+    color: hsl(0, 0%, 100%);
+    box-shadow: #27bcda 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
+
+.service-button:active {
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
+    color: hsl(0, 0%, 100%);
+    box-shadow: #27bcda 0px 0px 0px 0px;
+    transform: translateY(10px);
+    transition: 100ms;
+}
