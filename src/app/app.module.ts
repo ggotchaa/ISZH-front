@@ -63,6 +63,7 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AnimalAccountingComponent } from './animal-accounting/animal-accounting.component';
 import { FilterModalComponent } from './filter-modal/filter-modal.component';
 
+import { AddUsersFormComponent } from './application-shared/dynamic-modal/modal-contents/add-users-form/add-users-form.component';
 
 registerLocaleData(en);
 
@@ -81,6 +82,7 @@ registerLocaleData(en);
     LoginComponent,
     AnimalAccountingComponent,
     FilterModalComponent,
+    AddUsersFormComponent,
   ],
   imports: [
     BrowserModule,
