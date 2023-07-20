@@ -1,6 +1,56 @@
 [
-  { "key": "name.first", "title": "First Name", "sort": true, "filter": false },
-  { "key": "name.last", "title": "Last Name", "sort": true , "filter": false},
-  { "key": "gender", "title": "Gender", "filter": true },
-  { "key": "email", "title": "Email", "sort": true, "filter": false }
+  {
+    "key": "number",
+    "title": "Номер",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "inj",
+    "title": "ИНЖ",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "animal.type",
+    "title": "Вид животного",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "direction",
+    "title": "Направление",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "breed",
+    "title": "Порода",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "date",
+    "title": "Дата",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "age",
+    "title": "Возраст",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "gender",
+    "title": "Пол",
+    "sort": true,
+    "filter": false
+  },
+  {
+    "key": "country",
+    "title": "Страна",
+    "sort": true,
+    "filter": false
+  }
 ]

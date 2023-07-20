@@ -1,102 +1,120 @@
 .container {
-  margin: 50px 0 0 72px;
+  padding-left: 85px;
+  padding-right: 85px;
+  padding-top: 50px;
 }
-.headBtn {
-  height: 48px;
-  border-radius: 4px 4px 0 0;
-  font-size: 14px;
-  font-weight: 600;
-  color: #17B9DA;
-  font-family: Inter, sans-serif;
-  border: 0;
-}
-.container-fluid {
-  background-color: white;
-  width: 1288px;
-  height: 729px;
-  padding: 32px 24px 24px 24px;
-}
-.container-up {
-  display: flex;
-  width: 1240px;
-  height: 48px;
-
-}
-.addAnimalsBtn {
-  border-radius: 4px;
-  background-color: #77C48D;
-  height: 48px;
-  width: 205px;
-  color: white;
-  border: 0;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-}
-.searchInput {
-  height: 48px;
-  width: 784px;
-  border-radius: 4px;
-  margin: 0 24px 0 24px;
-
-}
-.inputText {
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-}
-.filters {
-  margin: auto;
-  font-weight: 600;
-  font-size: 14px;
-  font-family: Inter, sans-serif;
-  cursor: pointer;
-}
-.tableSettingBtn {
-  border-radius: 4px;
-  height: 48px;
-  width: 205px;
-  font-family: Inter, sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-}
-.container-mid {
-  display: flex;
-  border: 1px solid black;
-  width: 1240px;
-  height: 593px;
-  margin-top: 24px;
-}
-.region {
-  width: 204px;
-  height: 593px;
-
-
-}
-.regionSearch {
-  font-family: Inter, sans-serif;
-  font-weight: 600;
-  font-size: 14px;
-  color: #222222;
-  height: 34px;
-  margin-bottom: 8px;
-  border: 0;
+.pc-tab > input,
+.pc-tab section > div {
+  display: none;
 }
 
-.row {
-
-}
-.col {
-
-}
-.regionBtn {
-  width: 204px;
-  height: 32px;
-  font-size: 14px;
-  font-weight: 600;
-  font-family: Inter, sans-serif;
-  border: 0px;
-  margin-bottom: 8px;
+#users:checked ~ section .users,
+#organizations:checked ~ section .organizations,
+#roles-permissions:checked ~ section .roles-permissions,
+#contracts:checked ~ section .contracts {
+  display: block;
 }
 
+#users:checked ~ nav .users,
+#organizations:checked ~ nav .organizations,
+#roles-permissions:checked ~ nav .roles-permissions,
+#contracts:checked ~ nav .contracts {
+  border-radius: 4px 4px 0px 0px;
+}
 
+/* Visual Styles */
 
+$activeColor: #ffffff;
+$unactiveHoverColor: #dddddd;
+
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,400,700);
+
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 4px 4px 0px 0px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background: #ecf0f1;
+}
+
+h1 {
+  text-align: center;
+  font-weight: 100;
+  font-size: 60px;
+  color: #e74c3c;
+}
+
+.pc-tab {
+  width: 100%;
+  margin: 0 auto;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      label {
+        float: left;
+        padding: 15px 25px;
+        border-bottom: 0;
+        color: #17B9DA;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 16px;
+        &:hover {
+          background: $unactiveHoverColor;
+        }
+        &:active {
+          background: $activeColor;
+        }
+      }
+      &:not(:last-child) label {
+        border-right-width: 0;
+      }
+    }
+  }
+  section {
+    clear: both;
+    div {
+      padding: 20px;
+      width: 100%;
+      border: 1px solid #ddd;
+      background: #fff;
+      line-height: 1.5em;
+      letter-spacing: 0.3px;
+      h2 {
+        margin: 0;
+        letter-spacing: 1px;
+        color: #34495e;
+      }
+    }
+  }
+}
+
+#users:checked ~ nav .users,
+#organizations:checked ~ nav .organizations,
+#roles-permissions:checked ~ nav .roles-permissions,
+#contracts:checked ~ nav .contracts {
+  label {
+    //SELECTED TAB
+    background: white;
+    position: relative;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      background: $activeColor;
+      left: 0;
+      bottom: -1px;
+      border-radius: 4px 4px 0px 0px;
+    }
+  }
+}

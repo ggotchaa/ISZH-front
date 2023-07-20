@@ -52,7 +52,7 @@ export class OrganizationsComponent implements OnInit {
     { text: 'male', value: 'male' },
     { text: 'female', value: 'female' }
   ];
-  
+
   //region: Add Organization Modal
   isVisible = false;
   modalTitle = 'Добавить Организацию';
@@ -79,6 +79,17 @@ export class OrganizationsComponent implements OnInit {
   }
   //endregion
 
+  //region: Deleting Modal
+  isVisibleDeletingModal = false;
+  modalTitleDelete = 'Удаление';
+
+  openDeleteModal(item: RandomUser): void {
+    this.isVisibleDeletingModal = true;
+    this.modalTitle = this.modalTitleDelete;
+    console.log('Deleting action', item)
+  }
+  //endregion
+
   //region: Edit Organization Modal
   isVisibleEditModal = false;
   modalTitleEdit = 'Редактировать Организацию';
@@ -92,7 +103,7 @@ export class OrganizationsComponent implements OnInit {
 
   ConfigureActionColumn = [
     { name: 'Редактировать', callback: this.openEditModal },
-    { name: 'Удалить', callback: this.onDeleteModal },
+    { name: 'Удалить', callback: this.openDeleteModal },
     { name: 'История', callback: this.openHistoryModal }
   ];
 
@@ -102,7 +113,7 @@ export class OrganizationsComponent implements OnInit {
         this.openEditModal(event.item);
         break;
       case 'Удалить':
-        this.onDeleteModal(event.item);
+        this.openDeleteModal(event.item);
         break;
       case 'История':
         this.openHistoryModal(event.item);
@@ -133,11 +144,6 @@ export class OrganizationsComponent implements OnInit {
 
   handleModalCancel(): void {
     this.isVisible = false;
-  }
-
-  onDeleteModal(item: RandomUser): void {
-    console.log('Delete action', item);
-    // todo logic
   }
 
 
