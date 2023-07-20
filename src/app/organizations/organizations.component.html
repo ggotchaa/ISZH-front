@@ -16,11 +16,20 @@
 </nz-row>
 
 <nz-row>
-  <app-metadata [data]="listOfRandomUser" [columns]="columns" [actions]="actions" (queryChange)="onQueryParamsChange($event)"></app-metadata>
+  <app-metadata [data]="listOfRandomUser" [columns]="columns" [actions]="ConfigureActionColumn" (queryChange)="onQueryParamsChange($event)" (actionClick)="onActionClick($event)"></app-metadata>
 </nz-row>
 
 <app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle" (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
   <app-add-organization-form></app-add-organization-form>
+</app-dynamic-modal>
+
+<app-dynamic-modal 
+  [isVisible]="isVisibleHistoryModal" 
+  (isVisibleChange)="isVisibleHistoryModal = $event" 
+  [modalTitle]="modalTitle" 
+  (onCancel)="handleModalCancel()" 
+  (onConfirm)="handleFormSubmit()">
+  adsasd content of modal
 </app-dynamic-modal>
 
 <router-outlet></router-outlet>

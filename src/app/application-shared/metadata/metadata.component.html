@@ -22,7 +22,7 @@
     <tr *ngFor="let row of data">
       <td *ngFor="let column of columns">{{ getValue(row, column.key) }}</td>
       <td>
-        <div class="ellipsis-button" (click)="selectedRow = row"></div>
+        <div class="ellipsis-button" (click)="toggleSelectedRow(row)"></div>
         <div class="popover" *ngIf="selectedRow === row">
           <button *ngFor="let action of actions" (click)="executeAction(action, row)">{{ action.name }}</button>
         </div>

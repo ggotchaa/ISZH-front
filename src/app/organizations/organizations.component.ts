@@ -52,15 +52,65 @@ export class OrganizationsComponent implements OnInit {
     { text: 'male', value: 'male' },
     { text: 'female', value: 'female' }
   ];
-
+  
+  //region: Add Organization Modal
   isVisible = false;
   modalTitle = 'Добавить Организацию';
 
-  actions = [
-    { name: 'Edit', callback: this.onEdit },
-    { name: 'Delete', callback: this.onDelete },
-    { name: 'Изменить', callback: this.openEditModal }
+  openModal(): void {
+    this.isVisible = true;
+    this.modalTitle;
+  }
+
+  handleFormSubmit(): void {
+    console.log('Form submitted');
+    this.isVisible = false;
+  }
+  //endregion
+
+  //region: History Modal
+  isVisibleHistoryModal = false;
+  modalTitleHistory = 'История';
+
+  openHistoryModal(item: RandomUser): void {
+    this.isVisibleHistoryModal = true;
+    this.modalTitle = this.modalTitleHistory;
+    console.log('History action', item);
+  }
+  //endregion
+
+  //region: Edit Organization Modal
+  isVisibleEditModal = false;
+  modalTitleEdit = 'Редактировать Организацию';
+
+  openEditModal(item: RandomUser): void {
+    this.isVisibleEditModal = true;
+    this.modalTitle = this.modalTitleEdit;
+    console.log('Edit action', item);
+  }
+  //endregion
+
+  ConfigureActionColumn = [
+    { name: 'Редактировать', callback: this.openEditModal },
+    { name: 'Удалить', callback: this.onDeleteModal },
+    { name: 'История', callback: this.openHistoryModal }
   ];
+
+  onActionClick(event: {item: RandomUser, action: string}): void {
+    switch(event.action) {
+      case 'Редактировать':
+        this.openEditModal(event.item);
+        break;
+      case 'Удалить':
+        this.onDeleteModal(event.item);
+        break;
+      case 'История':
+        this.openHistoryModal(event.item);
+        break;
+      default:
+        console.log('Invalid action');
+    }
+  }
 
   constructor(private randomUserService: RandomUserService) {}
 
@@ -81,31 +131,11 @@ export class OrganizationsComponent implements OnInit {
     this.loadDataFromServer(pageIndex, pageSize);
   }
 
-  openModal(): void {
-    this.isVisible = true;
-    this.modalTitle;
-  }
-
-  openEditModal(): void {
-    this.isVisible = true;
-    this.modalTitle;
-  }
-
-  handleFormSubmit(): void {
-    console.log('Form submitted');
-    this.isVisible = false;
-  }
-
   handleModalCancel(): void {
     this.isVisible = false;
   }
 
-  onEdit(item: RandomUser): void {
-    console.log('Edit action', item);
-    // todo logic
-  }
-
-  onDelete(item: RandomUser): void {
+  onDeleteModal(item: RandomUser): void {
     console.log('Delete action', item);
     // todo logic
   }

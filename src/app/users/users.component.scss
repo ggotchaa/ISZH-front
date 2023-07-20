@@ -27,7 +27,6 @@
     border-radius: 5px;
     background: #17b9da;
     border-color: #17b9da;
-    box-shadow: #1f6978 0px 5px 5px 0px;
     width: max-content;
     height: max-content;
 }
@@ -35,7 +34,6 @@
 .addUser:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
     color: hsl(0, 0%, 100%);
-    box-shadow: #27bcda 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
 }
@@ -44,7 +42,6 @@
     border-radius: 5px;
     background: #17b9da;
     border-color: #17b9da;
-    box-shadow: #1f6978 0px 5px 5px 0px;
     color: #ffffff;
     width: max-content;
     height: max-content;
@@ -54,7 +51,6 @@
     border-radius: 0px;
     background: #17b9da;
     border-color: #5f9daa;
-    box-shadow: #1f6978 0px 5px 5px 0px;
     color: #ffffff;
     width: 80px;
     height: 30px;
@@ -68,7 +64,6 @@
 .export-excel-button:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
     color: hsl(0, 0%, 100%);
-    box-shadow: #27bcda 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
 }
@@ -76,7 +71,6 @@
 .service-button:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
     color: hsl(0, 0%, 100%);
-    box-shadow: #27bcda 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
 }
