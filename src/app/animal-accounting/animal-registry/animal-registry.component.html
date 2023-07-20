@@ -1,0 +1,78 @@
+<div class="container">
+  <div class="container-fluid">
+    <div class="container-up">
+      <button nz-button nzType="default" class="addAnimalsBtn">
+        <span nz-icon nzType="plus" nzTheme="outline" style="width: 20px; height: 20px"></span>
+        Добавить животных
+      </button>
+      <nz-input-group [nzPrefix]="prefixIconSearch" [nzSuffix]="suffixIconFilter" class="searchInput">
+        <input class="inputText" type="text" nz-input placeholder="Поиск по параметрам"/>
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <span nz-icon nzType="search" style="color: #17B9DA; margin-right: 5px"></span>
+      </ng-template>
+      <ng-template #suffixIconFilter>
+        <span nz-icon nzType="filter" nzTheme="fill" style="color: black; margin-right: 5px"></span>
+        <p class="filters" (click)="showModalFilter()">Фильтры</p>
+      </ng-template>
+      <button nz-button nzType="default" class="tableSettingBtn" (click)="showModalSetting()">
+        <span nz-icon nzType="setting" nzTheme="outline" style="width: 20px; height: 20px"></span>
+        Настройки таблицы
+      </button>
+      <app-table-setting-modal [isVisible]="isVisibleSetting" (isVisibleChange)="isVisibleSetting = $event" [modalTitle]="modalTitle"
+                               (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+        <app-table-settings-form></app-table-settings-form>
+      </app-table-setting-modal>
+
+      <app-modal-footer [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
+                        (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+        <app-search-animal-filter></app-search-animal-filter>
+      </app-modal-footer>
+    </div>
+    <div class="container-mid">
+    <div class="region">
+      <nz-input-group [nzSuffix]="suffixIcon" class="regionSearch">
+        <input type="text" nz-input placeholder="Наименование региона" [(ngModel)]="searchValue" />
+      </nz-input-group>
+      <ng-template #suffixIcon>
+        <span nz-icon nzType="menu" nzTheme="outline"></span>
+      </ng-template>
+      <nz-row class="row">
+        <nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Акмолинская область
+          </button>
+        </nz-col><nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Актюбинская область
+          </button>
+        </nz-col><nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Алматинская область
+          </button>
+        </nz-col><nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Атырауская область
+          </button>
+        </nz-col><nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Западно-Казахстанская область
+          </button>
+        </nz-col><nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Жамбылская область
+          </button>
+        </nz-col><nz-col class="col">
+          <button nz-button nzType="default" class="regionBtn" >
+            Карагандинская область
+          </button>
+        </nz-col>
+      </nz-row>
+    </div>
+    <div class="generatedTable">
+      <app-animal-registry-table [data]="listOfData" [columns]="columns" [actions]="actions"
+                                 (queryChange)="onQueryParamsChange($event)"></app-animal-registry-table>
+    </div>
+    </div>
+  </div>
+</div>

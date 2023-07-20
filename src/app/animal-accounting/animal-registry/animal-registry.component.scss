@@ -1,0 +1,104 @@
+.container {
+  width: 1288px;
+  height: 729px;
+  margin: 0 0 85px 85px;
+}
+.headBtn {
+  height: 48px;
+  border-radius: 4px 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #17B9DA;
+  font-family: Inter, sans-serif;
+  border: 0;
+}
+.container-fluid {
+  background-color: white;
+  width: 1288px;
+  height: 729px;
+  padding: 32px 24px 24px 24px;
+}
+.container-up {
+  display: flex;
+  width: 1240px;
+  height: 48px;
+
+}
+.addAnimalsBtn {
+  border-radius: 4px;
+  background-color: #77C48D;
+  height: 48px;
+  width: 205px;
+  color: white;
+  border: 0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.searchInput {
+  height: 48px;
+  width: 784px;
+  border-radius: 4px;
+  margin: 0 24px 0 24px;
+
+}
+.inputText {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+.filters {
+  margin: auto;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+}
+.tableSettingBtn {
+  border-radius: 4px;
+  height: 48px;
+  width: 205px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+.container-mid {
+  display: flex;
+  border: 1px solid black;
+  width: 1240px;
+  height: 593px;
+  margin-top: 24px;
+}
+.region {
+  width: 204px;
+  height: 593px;
+
+
+}
+.regionSearch {
+  font-family: Inter, sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #222222;
+  height: 34px;
+  margin-bottom: 8px;
+  border: 0;
+}
+
+.row {
+
+}
+.col {
+
+}
+.regionBtn {
+  width: 204px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: Inter, sans-serif;
+  border: 0px;
+  margin-bottom: 8px;
+}
+
+
+
