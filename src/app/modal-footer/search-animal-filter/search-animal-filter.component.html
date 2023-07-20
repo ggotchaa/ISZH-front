@@ -1,0 +1,99 @@
+<div style="display: flex;">
+  <div>
+    <p class="modalInputText">Регион: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Владелец: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите владельца"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Порода: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите породу"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Тип идентификации: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите тип"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">ИНЖ: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Укажите ИНЖ"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Дата рождения: </p>
+    <nz-date-picker class="modalInput" nzAllowClear nzShowSearch nzPlaceHolder="дд.мм.гггг."
+                    [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+    <p class="modalInputText">Статус: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите статус"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Дата снятия с учета: </p>
+    <nz-date-picker class="modalInput" nzAllowClear nzPlaceHolder="дд.мм.гггг." [(ngModel)]="date"
+                    (ngModelChange)="onChange($event)"></nz-date-picker>
+    <p class="modalInputText">Карантировано: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите значение"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Да'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Нет'"></nz-option>
+    </nz-select>
+  </div>
+  <div>
+    <p class="modalInputText">ИИН/БИН владельца: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Укажите ИИН/БИН владельца"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Вид животного: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите вид"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Направление: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите направление"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Страна происхождения: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите страну"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Пол: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите пол"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Возраст: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Укажите возраст"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+    <p class="modalInputText">Дата регистрации: </p>
+    <nz-date-picker class="modalInput" nzAllowClear nzPlaceHolder="дд.мм.гггг." [(ngModel)]="date"
+                    (ngModelChange)="onChange($event)"></nz-date-picker>
+    <p class="modalInputText">Зеленый коридор: </p>
+    <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите значение"
+               [(ngModel)]="selectedValue" class="modalInput">
+      <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+      <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+    </nz-select>
+  </div>
+</div>

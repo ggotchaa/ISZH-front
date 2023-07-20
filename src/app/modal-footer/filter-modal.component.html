@@ -1,4 +1,5 @@
-<nz-modal [(nzVisible)]="isVisible" (nzOnCancel)="handleCancel()" nzTitle="{{modalTitle}}" (nzOnOk)="handleOk()">
+<nz-modal [(nzVisible)]="isVisible" nzWidth="868px" nzHeight="830px" (nzOnCancel)="handleCancel()"
+          nzTitle="{{modalTitle}}" (nzOnOk)="handleOk()">
   <ng-container *nzModalContent>
     <ng-content></ng-content>
   </ng-container>

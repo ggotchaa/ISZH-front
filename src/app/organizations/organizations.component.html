@@ -7,19 +7,29 @@
       </button>
     </nz-col>
     <nz-col [nzSpan]="16">
-      <input nz-input placeholder="Поиск по параметрам" [(ngModel)]="value" />
+      <nz-input-group [nzPrefix]="prefixIconSearch" class="searchInput">
+        <input class="inputText" type="text" nz-input placeholder="Поиск по параметрам"/>
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <span nz-icon nzType="search" style="color: #17B9DA; margin-right: 5px"></span>
+      </ng-template>
     </nz-col>
     <nz-col [nzSpan]="4">
-      <button nz-button nzType="primary">Настройки таблицы</button>
+      <button nz-button nzType="default" class="tableSettingBtn" (click)="showModalSetting()">
+        <span nz-icon nzType="setting" nzTheme="outline" style="width: 20px; height: 20px"></span>
+        Настройки таблицы
+      </button>
     </nz-col>
   </div>
 </nz-row>
 
 <nz-row>
-  <app-metadata [data]="listOfRandomUser" [columns]="columns" [actions]="actions" (queryChange)="onQueryParamsChange($event)"></app-metadata>
+  <app-metadata [data]="listOfRandomUser" [columns]="columns" [actions]="actions"
+                (queryChange)="onQueryParamsChange($event)"></app-metadata>
 </nz-row>
 
-<app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle" (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+<app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
+                   (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
   <app-add-organization-form></app-add-organization-form>
 </app-dynamic-modal>
 

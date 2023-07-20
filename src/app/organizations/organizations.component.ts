@@ -68,7 +68,7 @@ export class OrganizationsComponent implements OnInit {
     this.loading = true;
     this.randomUserService.getUsers(pageIndex, pageSize).subscribe(data => {
       this.loading = false;
-      this.total = data.results.length; 
+      this.total = data.results.length;
       this.listOfRandomUser = data.results;
     });
   }
@@ -109,10 +109,18 @@ export class OrganizationsComponent implements OnInit {
     console.log('Delete action', item);
     // todo logic
   }
-  
+
 
   ngOnInit(): void {
     this.loadDataFromServer(this.pageIndex, this.pageSize);
     console.log(this.columns);
+  }
+
+  showModalSetting(): void {
+    // this.isVisibleSetting = true;
+  }
+
+  showModalFilter(): void {
+    // this.isVisibleFilter = true;
   }
 }

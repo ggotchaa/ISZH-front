@@ -61,9 +61,12 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AnimalAccountingComponent } from './animal-accounting/animal-accounting.component';
-import { FilterModalComponent } from './filter-modal/filter-modal.component';
-
 import { AddUsersFormComponent } from './application-shared/dynamic-modal/modal-contents/add-users-form/add-users-form.component';
+import { SearchAnimalFilterComponent } from './modal-footer/search-animal-filter/search-animal-filter.component';
+import { TableSettingsFormComponent } from './table-setting-modal/table-settings-form/table-settings-form.component';
+import { FilterModalComponent } from './modal-footer/filter-modal.component';
+import { TableSettingModalComponent } from './table-setting-modal/table-setting-modal.component';
+import { AnimalRegistryTableComponent } from './animal-registry-table/animal-registry-table.component';
 
 registerLocaleData(en);
 
@@ -81,8 +84,12 @@ registerLocaleData(en);
     HomeComponent,
     LoginComponent,
     AnimalAccountingComponent,
-    FilterModalComponent,
     AddUsersFormComponent,
+    SearchAnimalFilterComponent,
+    TableSettingsFormComponent,
+    FilterModalComponent,
+    TableSettingModalComponent,
+    AnimalRegistryTableComponent,
   ],
   imports: [
     BrowserModule,

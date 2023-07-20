@@ -1,10 +1,10 @@
 <form  #form="ngForm">
     <nz-form-item>
-      <nz-form-label>Родительская организационная 
+      <nz-form-label>Родительская организационная
         единица
         </nz-form-label>
       <nz-form-control>
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите организацию" [(ngModel)]="selectedValue">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите организацию" class="modalInput" [(ngModel)]="selectedValue">
           <nz-option nzLabel="todo api1" nzValue="todo api1"></nz-option>
           <nz-option nzLabel="todo api2" nzValue="todo api2"></nz-option>
           <nz-option nzLabel="todo api3" nzValue="todo api3"></nz-option>
@@ -15,53 +15,53 @@
       <nz-form-label>БИН
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label>Наименование на казахском 
+      <nz-form-label>Наименование на казахском
         языке
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label>Наименование на русском языке
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label>Наименование на казахском 
-        языке (кому)        
+      <nz-form-label>Наименование на казахском
+        языке (кому)
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label>Наименование на русском языке 
-        (кому)        
+      <nz-form-label>Наименование на русском языке
+        (кому)
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label>Родительская организационная 
+      <nz-form-label>Родительская организационная
         единица
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label>Код КАТО
         </nz-form-label>
       <nz-form-control>
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите КАТО" [(ngModel)]="selectedValue">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите КАТО" [(ngModel)]="selectedValue" class="modalInput">
           <nz-option nzLabel="todo api1" nzValue="todo api1"></nz-option>
           <nz-option nzLabel="todo api2" nzValue="todo api2"></nz-option>
           <nz-option nzLabel="todo api3" nzValue="todo api3"></nz-option>
@@ -72,7 +72,7 @@
       <nz-form-label>Тип организации
         </nz-form-label>
       <nz-form-control>
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите тип организации" [(ngModel)]="selectedValue">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите тип организации" [(ngModel)]="selectedValue" class="modalInput">
           <nz-option nzLabel="todo api1" nzValue="todo api1"></nz-option>
           <nz-option nzLabel="todo api2" nzValue="todo api2"></nz-option>
           <nz-option nzLabel="todo api3" nzValue="todo api3"></nz-option>
@@ -83,7 +83,7 @@
       <nz-form-label>Тип подразделения
         </nz-form-label>
       <nz-form-control>
-        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите тип подразделения" [(ngModel)]="selectedValue">
+        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Выберите тип подразделения" [(ngModel)]="selectedValue" class="modalInput">
           <nz-option nzLabel="todo api1" nzValue="todo api1"></nz-option>
           <nz-option nzLabel="todo api2" nzValue="todo api2"></nz-option>
           <nz-option nzLabel="todo api3" nzValue="todo api3"></nz-option>
@@ -94,28 +94,28 @@
       <nz-form-label>Индекс
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label>Заблокированное
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label>Дата начала действия
         </nz-form-label>
       <nz-form-control>
-        <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+        <nz-date-picker [(ngModel)]="date" (ngModelChange)="onChange($event)" class="modalInput"></nz-date-picker>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-label>Дата окончания действия
         </nz-form-label>
       <nz-form-control>
-        <input nz-input name="name" ngModel required>
+        <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
 </form>
