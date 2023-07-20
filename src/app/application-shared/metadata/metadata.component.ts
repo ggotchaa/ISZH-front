@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { NzTableQueryParams } from 'ng-zorro-antd/table';
 
 @Component({
@@ -11,13 +11,14 @@ export class MetadataComponent implements OnInit {
   @Input() columns: { key: string, title: string, sort?: boolean, filter?: boolean }[] = [];
   @Input() actions: { name: string, callback: (item: any) => void }[] = [];
   @Output() queryChange = new EventEmitter<NzTableQueryParams>();
+  @Output() actionClick = new EventEmitter<{item: any, action: string}>();
   pageIndex: number = 1;
   pageSize: number = 10;
   sort: any;
   filter: any;
   selectedRow: any;
 
-  constructor() {
+  constructor(private elementRef: ElementRef) {
     this.getValue = this.getValue.bind(this);
   }
 
@@ -35,9 +36,17 @@ export class MetadataComponent implements OnInit {
     this.queryChange.emit(queryParams);
   }
 
+  toggleSelectedRow(row: any): void {
+    if (this.selectedRow === row) {
+      this.selectedRow = null;
+    } else {
+      this.selectedRow = row;
+    }
+  }
+
   executeAction(action: { name: string, callback: (item: any) => void }, item: any): void {
     this.selectedRow = item;
-    action.callback(item);
+    this.actionClick.emit({item: item, action: action.name});
   }
   
 

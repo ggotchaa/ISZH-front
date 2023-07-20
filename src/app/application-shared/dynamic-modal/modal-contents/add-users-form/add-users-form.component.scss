@@ -44,7 +44,6 @@
     color: white;
     background: #17b9da;
     border-color: #17b9da;
-    box-shadow: #1f6978 5px 5px 5px 0px;
     width: max-content;
     height: max-content;
 }
@@ -52,7 +51,6 @@
 .button:active {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
     color: hsl(0, 0%, 100%);
-    box-shadow: #27bcda 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
 }
