@@ -20,9 +20,13 @@
       <div nz-col [nzSpan]="2">KZ/RU</div>
       <div nz-col [nzSpan]="2"><p class="settings-icon-desc">Настройки сайта</p></div>
       <div nz-col [nzSpan]="4">
-        <button nz-button nzType="primary" class="loginButton" routerLink="/login">
+        <button nz-button nzType="primary" class="loginButton" routerLink="/login" *ngIf="(isLoggedIn$ | async) === false">
           <span nz-icon nzType="login" nzTheme="outline" class="loginIcon"></span>
           <a class="loginTitle">Войти</a>
+        </button>
+        <button nz-button nzType="primary" class="logoutButton" (click)="logout()" *ngIf="(isLoggedIn$ | async) === true">
+          <span nz-icon nzType="logout" nzTheme="outline" class="logoutIcon"></span>
+          <a class="logoutTitle">Выйти</a>
         </button>
       </div>
     </nz-header>
