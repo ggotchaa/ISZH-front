@@ -62,11 +62,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { AnimalRegistryComponent } from './animal-accounting/animal-registry/animal-registry.component';
 import { AddUsersFormComponent } from './application-shared/dynamic-modal/modal-contents/add-users-form/add-users-form.component';
-import { SearchAnimalFilterComponent } from './filter-modal/search-animal-filter/search-animal-filter.component';
-import { TableSettingsFormComponent } from './table-setting-modal/table-settings-form/table-settings-form.component';
-import { FilterModalComponent } from './filter-modal/filter-modal.component';
-import { TableSettingModalComponent } from './table-setting-modal/table-setting-modal.component';
-import { AnimalRegistryTableComponent } from './animal-registry-table/animal-registry-table.component';
+import { SearchAnimalFilterComponent } from './application-shared/dynamic-modal/modal-contents/search-animal-filter/search-animal-filter.component';
+import { TableSettingsFormComponent } from './application-shared/dynamic-modal/modal-contents/table-settings-form/table-settings-form.component';
 import {AnimalAccountingComponent} from "./animal-accounting/animal-accounting.component";
 import { DeletingFormComponent } from './application-shared/dynamic-modal/modal-contents/deleting-form/deleting-form.component';
 import { OrganizationHistoryComponent } from './application-shared/dynamic-modal/modal-contents/organization-history/organization-history.component';
@@ -90,9 +87,6 @@ registerLocaleData(en);
     AddUsersFormComponent,
     SearchAnimalFilterComponent,
     TableSettingsFormComponent,
-    FilterModalComponent,
-    TableSettingModalComponent,
-    AnimalRegistryTableComponent,
     AnimalAccountingComponent,
     DeletingFormComponent,
     OrganizationHistoryComponent,
