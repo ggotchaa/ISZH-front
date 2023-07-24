@@ -44,6 +44,7 @@ export class RandomUserService {
 export class AnimalRegistryComponent {
   isVisibleSetting = false;
   isVisible = false;
+  isVisibleFilter = false;
   selectedValue = null;
   date = null;
   modalTitle = 'Фильтры';
@@ -102,7 +103,7 @@ export class AnimalRegistryComponent {
   }
 
   showModalFilter(): void {
-    this.isVisible = true;
+    this.isVisibleFilter = true;
   }
   handleFormSubmit(): void {
     console.log('Form submitted');

@@ -34,7 +34,7 @@
   </app-dynamic-modal>
 </nz-row>
 <nz-row>
-  <app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
+  <app-dynamic-modal [isVisible]="isVisibleFilter" (isVisibleChange)="isVisibleFilter = $event" [modalTitle]="modalTitle"
                     (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
     <app-search-animal-filter></app-search-animal-filter>
   </app-dynamic-modal>
