@@ -3,34 +3,31 @@ import {NzFormatEmitEvent} from "ng-zorro-antd/tree";
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import animalRegistryTable from "../../animal-registry-table/table-generator/animal-registry.json"
 import {catchError, Observable, of} from "rxjs";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 
 interface Animals {
-  key: number;
-  inj: string;
-  animalType: string;
-  direction: string;
-  breed: string;
-  date: Date;
-  age: number;
-  gender: string;
-  country: string;
+  name: string;
+  cattleCount: number;
+  smallCattlesCount: number;
+  pigsCount: number;
+  horsesCount: number;
+  camelsCount: number;
+  hoofedsCount: number;
 }
-
 @Injectable({ providedIn: 'root' })
-export class RandomUserService {
-  randomUserUrl = 'https://api.randomuser.me/';
+export class GetAnimalListService {
+  private baseApiUrl = 'http://localhost:5003/';
+  private getAnimalListUrl = 'api/registry/api/RegisteredAnimals';
+  private headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  getUsers(
-    pageIndex: number,
-    pageSize: number
-  ): Observable<{ results: Animals[] }> {
-    let params = new HttpParams()
+  getUsers(pageIndex: number, pageSize: number): Observable<{ results: Animals[] }> {
+    const culture = 'Ru'; // Replace this with the appropriate culture ('Ru' or 'En')
+    const params = new HttpParams()
       .append('page', `${pageIndex}`)
-      .append('results', `${pageSize}`);
-    return this.http
-      .get<{ results: Animals[] }>(`${this.randomUserUrl}`, { params })
-      .pipe(catchError(() => of({ results: [] })));
+      .append('results', `${pageSize}`)
+      .append('culture', culture);
+
+    return this.http.get<{ results: Animals[] }>(`${this.baseApiUrl}${this.getAnimalListUrl}`, { params });
   }
 
   constructor(private http: HttpClient) {}
@@ -62,17 +59,21 @@ export class AnimalRegistryComponent {
   ];
 
 
-  constructor(private randomUserService: RandomUserService) {
-  }
-
+  constructor(private getListService: GetAnimalListService) {}
 
   loadDataFromServer(pageIndex: number, pageSize: number): void {
     this.loading = true;
-    this.randomUserService.getUsers(pageIndex, pageSize).subscribe(data => {
-      this.loading = false;
-      this.total = data.results.length;
-      this.listOfData = data.results;
-    });
+    this.getListService.getUsers(pageIndex, pageSize).subscribe(
+      (data) => {
+        this.loading = false;
+        this.total = data.results.length;
+        this.listOfData = data.results;
+      },
+      (error) => {
+        this.loading = false;
+        console.error('Error fetching data:', error);
+      }
+    );
   }
 
   onQueryParamsChange(params: NzTableQueryParams): void {
@@ -110,11 +111,6 @@ export class AnimalRegistryComponent {
     this.isVisible = false;
   }
 
-  ngOnInit(): void {
-    this.loadDataFromServer(this.pageIndex, this.pageSize);
-    console.log(this.columns);
-  }
-
   onEdit(item: Animals): void {
     console.log('Edit action', item);
     // todo logic
@@ -133,5 +129,8 @@ export class AnimalRegistryComponent {
 
   nzEvent(event: NzFormatEmitEvent): void {
     console.log(event);
+  }
+  ngOnInit(): void {
+    this.loadDataFromServer(this.pageIndex, this.pageSize);
   }
 }

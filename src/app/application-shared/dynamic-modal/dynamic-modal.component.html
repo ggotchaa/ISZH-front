@@ -3,11 +3,24 @@
     <ng-content></ng-content>
   </ng-container>
   <div *nzModalFooter>
-    <button class="modalBtn" style="background-color: #22222224; width: 110px" nz-button nzType="default"
-            (click)="handleCancel()">Сбросить
+    <button
+      *ngIf="modalType === 'doubleButton'"
+      class="modalBtn"
+      style="background-color: #22222224; width: 110px"
+      nz-button
+      nzType="default"
+      (click)="handleCancel()"
+    >
+      {{cancelButtonTitle}}
     </button>
-    <button class="modalBtn" style="background-color: #77C48D; color: white; width: 123px" nz-button
-            nzType="default" (click)="handleOk()">Применить
+    <button
+      class="modalBtn"
+      [style.background-color]="modalType === 'singleButton' ? '#77C48D' : '#77C48D'"
+      nz-button
+      nzType="default"
+      (click)="handleOk()"
+    >
+      {{confirmButtonTitle}}
     </button>
   </div>
 </nz-modal>

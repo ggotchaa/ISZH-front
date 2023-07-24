@@ -6,6 +6,10 @@ import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@ang
   styleUrls: ['./dynamic-modal.component.scss']
 })
 export class DynamicModalComponent implements OnInit {
+  @Output() isVisibleChange = new EventEmitter<boolean>();
+  @Output() onCancel = new EventEmitter<void>();
+  @Output() onConfirm = new EventEmitter<void>();
+  
   @Input() modalTitle!: string;
   constructor(private el: ElementRef) { }
   
@@ -19,9 +23,9 @@ export class DynamicModalComponent implements OnInit {
   }
   private _isVisible!: boolean;
 
-  @Output() isVisibleChange = new EventEmitter<boolean>();
-  @Output() onCancel = new EventEmitter<void>();
-  @Output() onConfirm = new EventEmitter<void>();
+  @Input() cancelButtonTitle!: string;
+  @Input() confirmButtonTitle!: string;
+  @Input() modalType: 'singleButton' | 'doubleButton' = 'doubleButton';
 
   ngOnInit(): void {}
 

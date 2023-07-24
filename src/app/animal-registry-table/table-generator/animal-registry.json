@@ -1,55 +1,49 @@
 [
   {
     "key": "number",
-    "title": "Номер",
+    "title": "#",
     "sort": true,
     "filter": false
   },
   {
-    "key": "inj",
-    "title": "ИНЖ",
+    "key": "name",
+    "title": "Наименование региона",
     "sort": true,
     "filter": false
   },
   {
-    "key": "animal.type",
-    "title": "Вид животного",
+    "key": "cattleCount",
+    "title": "КРС",
     "sort": true,
     "filter": false
   },
   {
-    "key": "direction",
-    "title": "Направление",
+    "key": "smallCattlesCount",
+    "title": "МРС",
     "sort": true,
     "filter": false
   },
   {
-    "key": "breed",
-    "title": "Порода",
+    "key": "pigsCount",
+    "title": "Свиньи",
     "sort": true,
     "filter": false
   },
   {
-    "key": "date",
-    "title": "Дата",
+    "key": "horsesCount",
+    "title": "Лошади",
     "sort": true,
     "filter": false
   },
   {
-    "key": "age",
-    "title": "Возраст",
+    "key": "camelsCount",
+    "title": "Верблюды",
     "sort": true,
     "filter": false
   },
   {
-    "key": "gender",
-    "title": "Пол",
-    "sort": true,
-    "filter": false
-  },
-  {
-    "key": "country",
-    "title": "Страна",
+    "key": "hoofedsCount",
+    "title": "Однокопытные",
     "sort": true,
     "filter": false
   }

@@ -1,4 +1,4 @@
-<nz-row style="background: white; height: 70px;">
+<nz-row style="background: white; height: 70px">
   <div class="setbar">
     <nz-col [nzSpan]="4">
       <button nz-button nzType="primary" class="addOrg" (click)="openModal()">
@@ -8,15 +8,34 @@
     </nz-col>
     <nz-col [nzSpan]="16">
       <nz-input-group [nzPrefix]="prefixIconSearch" class="searchInput">
-        <input class="inputText" type="text" nz-input placeholder="Поиск по параметрам"/>
+        <input
+          class="inputText"
+          type="text"
+          nz-input
+          placeholder="Поиск по параметрам"
+        />
       </nz-input-group>
       <ng-template #prefixIconSearch>
-        <span nz-icon nzType="search" style="color: #17B9DA; margin-right: 5px"></span>
+        <span
+          nz-icon
+          nzType="search"
+          style="color: #17b9da; margin-right: 5px"
+        ></span>
       </ng-template>
     </nz-col>
     <nz-col [nzSpan]="4">
-      <button nz-button nzType="default" class="tableSettingBtn" (click)="showModalSetting()">
-        <span nz-icon nzType="setting" nzTheme="outline" style="width: 20px; height: 20px"></span>
+      <button
+        nz-button
+        nzType="default"
+        class="tableSettingBtn"
+        (click)="showModalSetting()"
+      >
+        <span
+          nz-icon
+          nzType="setting"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
         Настройки таблицы
       </button>
     </nz-col>
@@ -24,12 +43,25 @@
 </nz-row>
 
 <nz-row>
-  <app-metadata [data]="listOfRandomUser" [columns]="columns" [actions]="ConfigureActionColumn"
-                (queryChange)="onQueryParamsChange($event)" (actionClick)="onActionClick($event)"></app-metadata>
+  <app-metadata
+    [data]="listOfRandomUser"
+    [columns]="columns"
+    [actions]="ConfigureActionColumn"
+    (queryChange)="onQueryParamsChange($event)"
+    (actionClick)="onActionClick($event)"
+  ></app-metadata>
 </nz-row>
 
-<app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
-                   (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+<app-dynamic-modal
+  [isVisible]="isVisible"
+  (isVisibleChange)="isVisible = $event"
+  [modalTitle]="modalTitle"
+  [modalType]="'doubleButton'"
+  [cancelButtonTitle]="'Отмена'"
+  [confirmButtonTitle]="'Добавить'"
+  (onCancel)="handleModalCancel()"
+  (onConfirm)="handleFormSubmit()"
+>
   <app-add-organization-form></app-add-organization-form>
 </app-dynamic-modal>
 
@@ -37,17 +69,20 @@
   [isVisible]="isVisibleHistoryModal"
   (isVisibleChange)="isVisibleHistoryModal = $event"
   [modalTitle]="modalTitle"
+  [modalType]="'singleButton'"
   (onCancel)="handleModalCancel()"
-  (onConfirm)="handleFormSubmit()">
-  adsasd content of modal
+  [confirmButtonTitle]="'Закрыть'"
+>
+  <app-organization-history></app-organization-history>
 </app-dynamic-modal>
 
 <app-dynamic-modal
   [isVisible]="isVisibleDeletingModal"
   (isVisibleChange)="isVisibleDeletingModal = $event"
   [modalTitle]="modalTitle"
-(onCancel)="handleModalCancel()"
-(onConfirm)="handleFormSubmit()">
+  (onCancel)="handleModalCancel()"
+  (onConfirm)="handleFormSubmit()"
+>
   <app-deleting-form></app-deleting-form>
 </app-dynamic-modal>
 

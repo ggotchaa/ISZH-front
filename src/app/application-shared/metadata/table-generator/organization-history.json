@@ -1,0 +1,5 @@
+[
+    { "key": "edited", "title": "Изменено", "sort": true, "filter": false },
+    { "key": "editedDate", "title": "Дата изменения", "sort": true , "filter": false},
+    { "key": "editIniciator", "title": "Инициатор изменения", "filter": true }
+]
