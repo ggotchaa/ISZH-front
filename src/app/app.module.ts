@@ -66,6 +66,7 @@ import { SearchAnimalFilterComponent } from './application-shared/dynamic-modal/
 import { TableSettingsFormComponent } from './application-shared/dynamic-modal/modal-contents/table-settings-form/table-settings-form.component';
 import {AnimalAccountingComponent} from "./animal-accounting/animal-accounting.component";
 import { DeletingFormComponent } from './application-shared/dynamic-modal/modal-contents/deleting-form/deleting-form.component';
+import { OrganizationHistoryComponent } from './application-shared/dynamic-modal/modal-contents/organization-history/organization-history.component';
 
 registerLocaleData(en);
 
@@ -88,6 +89,7 @@ registerLocaleData(en);
     TableSettingsFormComponent,
     AnimalAccountingComponent,
     DeletingFormComponent,
+    OrganizationHistoryComponent,
   ],
   imports: [
     BrowserModule,

@@ -77,6 +77,11 @@ export class OrganizationsComponent implements OnInit {
     this.modalTitle = this.modalTitleHistory;
     console.log('History action', item);
   }
+
+  handleFormSubmitHistory(): void {
+    console.log('Form submitted');
+    this.isVisible = false;
+  }
   //endregion
 
   //region: Deleting Modal

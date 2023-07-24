@@ -17,5 +17,4 @@ export class AddOrganizationFormComponent implements OnInit{
   ngOnInit(): void {
     console.log('AddOrganizationFormComponent');
   }
- 
 }
