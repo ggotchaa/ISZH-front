@@ -80,6 +80,9 @@
   [isVisible]="isVisibleDeletingModal"
   (isVisibleChange)="isVisibleDeletingModal = $event"
   [modalTitle]="modalTitle"
+  [modalType]="'doubleButton'"
+  [cancelButtonTitle]="'Отмена'"
+  [confirmButtonTitle]="'Удалить'"
   (onCancel)="handleModalCancel()"
   (onConfirm)="handleFormSubmit()"
 >

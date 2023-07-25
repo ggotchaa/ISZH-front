@@ -49,10 +49,10 @@ import {NzResultModule} from 'ng-zorro-antd/result';
 import {NzCardModule} from 'ng-zorro-antd/card';
 import {NzTabsModule} from 'ng-zorro-antd/tabs';
 import { NzMenuModule } from 'ng-zorro-antd/menu'
-import { AdministrationComponent } from './administration/administration.component';
+import { AdministrationComponent } from './portal/administration/administration.component';
 import { BreadcrumbComponent } from './application-shared/breadcrumb/breadcrumb.component';
-import { OrganizationsComponent } from './organizations/organizations.component';
-import { UsersComponent } from './users/users.component';
+import { OrganizationsComponent } from './portal/administration/organizations/organizations.component';
+import { UsersComponent } from './portal/administration/users/users.component';
 import { MetadataComponent } from './application-shared/metadata/metadata.component';
 import { DynamicModalComponent } from './application-shared/dynamic-modal/dynamic-modal.component';
 import { AddOrganizationFormComponent } from './application-shared/dynamic-modal/modal-contents/add-organization-form/add-organization-form.component';
@@ -60,13 +60,13 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
-import { AnimalRegistryComponent } from './animal-accounting/animal-registry/animal-registry.component';
 import { AddUsersFormComponent } from './application-shared/dynamic-modal/modal-contents/add-users-form/add-users-form.component';
 import { SearchAnimalFilterComponent } from './application-shared/dynamic-modal/modal-contents/search-animal-filter/search-animal-filter.component';
 import { TableSettingsFormComponent } from './application-shared/dynamic-modal/modal-contents/table-settings-form/table-settings-form.component';
-import {AnimalAccountingComponent} from "./animal-accounting/animal-accounting.component";
 import { DeletingFormComponent } from './application-shared/dynamic-modal/modal-contents/deleting-form/deleting-form.component';
 import { OrganizationHistoryComponent } from './application-shared/dynamic-modal/modal-contents/organization-history/organization-history.component';
+import { AnimalRegistryComponent } from './portal/animal-accounting/animal-registry/animal-registry.component';
+import { AnimalAccountingComponent } from './portal/animal-accounting/animal-accounting.component';
 
 registerLocaleData(en);
 

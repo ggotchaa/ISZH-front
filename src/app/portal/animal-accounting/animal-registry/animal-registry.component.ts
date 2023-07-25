@@ -1,7 +1,7 @@
 import {Component, Injectable, Input} from '@angular/core';
 import {NzFormatEmitEvent} from "ng-zorro-antd/tree";
 import {NzTableQueryParams} from "ng-zorro-antd/table";
-import animalRegistryTable from "../../application-shared/metadata/table-generator/animal-registry.json"
+import animalRegistryTable from "../../../application-shared/metadata/table-generator/animal-registry.json"
 import {catchError, Observable, of} from "rxjs";
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
 

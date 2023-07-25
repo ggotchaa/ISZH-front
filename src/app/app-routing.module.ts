@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PortalComponent } from './portal/portal.component';
-import { AdministrationComponent } from './administration/administration.component';
-import { OrganizationsComponent } from './organizations/organizations.component';
-import { UsersComponent } from './users/users.component';
+import { AdministrationComponent } from './portal/administration/administration.component';
+import { OrganizationsComponent } from './portal/administration/organizations/organizations.component';
+import { UsersComponent } from './portal/administration/users/users.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { AnimalRegistryComponent } from './animal-accounting/animal-registry/animal-registry.component';
-import { AnimalAccountingComponent } from './animal-accounting/animal-accounting.component';
+import { AnimalRegistryComponent } from './portal/animal-accounting/animal-registry/animal-registry.component';
+import { AnimalAccountingComponent } from './portal/animal-accounting/animal-accounting.component';
 
 const routes: Routes = [
   { 
