@@ -3,7 +3,7 @@ import { Component, Injectable, OnInit } from '@angular/core';
 import { NzTableQueryParams } from 'ng-zorro-antd/table';
 import { catchError, Observable, of } from 'rxjs';
 
-import metadata from '../application-shared/metadata/table-generator/administration-organizations.json';
+import metadata from '../../../application-shared/metadata/table-generator/administration-organizations.json';
 
 // TODO: переделать интерфейс после получения бэка. (пока что использую mock для визуализации)
 interface RandomUser {

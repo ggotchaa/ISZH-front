@@ -1,5 +1,5 @@
 <div style="display: flex;">
-  <nz-row>
+  <nz-col>
     <p class="modalInputText">Регион: </p>
     <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
       class="modalInput">
@@ -48,8 +48,8 @@
       <nz-option [nzLabel]="'Астана'" [nzValue]="'Да'"></nz-option>
       <nz-option [nzLabel]="'Алмата'" [nzValue]="'Нет'"></nz-option>
     </nz-select>
-  </nz-row>
-  <nz-row>
+  </nz-col>
+  <nz-col>
     <p class="modalInputText">ИИН/БИН владельца: </p>
     <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Укажите ИИН/БИН владельца"
       [(ngModel)]="selectedValue" class="modalInput">
@@ -95,5 +95,5 @@
       <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
       <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
     </nz-select>
-  </nz-row>
+  </nz-col>
 </div>
