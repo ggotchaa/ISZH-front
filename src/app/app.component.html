@@ -1,7 +1,7 @@
 <nz-layout>
   <nz-row class="menu-row">
     <nz-header class="header-menu">
-      <div nz-col [nzSpan]="2">
+      <div nz-col [nzSpan]="2" class="menuBtnDiv">
         <button nz-button nzType="primary" class="mainMenuButton">
           <span nz-icon nzType="menu" nzTheme="outline" class="menuIcon"></span>
           <a class="menuTitle">Меню</a>
@@ -9,12 +9,12 @@
       </div>
       <div nz-col [nzSpan]="6" class="icon-with-desc">
         <p class="icon-desc">
-          Информационная система «Идентификация сельскохозяйственных животных»
+          Информационная система «Идентификация <br> сельскохозяйственных животных»
         </p>
       </div>
-      <div nz-col [nzSpan]="8" class="searchDiv">
-        <nz-input-group [nzSuffix]="suffixIconSearch">
-          <input type="text" nz-input placeholder="Поиск" />
+      <div nz-col [nzSpan]="8" >
+        <nz-input-group [nzSuffix]="suffixIconSearch" class="searchDiv">
+          <input  type="text" nz-input placeholder="Поиск" />
         </nz-input-group>
       </div>
       <div nz-col [nzSpan]="2">KZ/RU</div>

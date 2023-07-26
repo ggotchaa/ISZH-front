@@ -13,9 +13,14 @@
   color: #17B9DA;
   padding-left: 10px;
 }
-
+.menuBtnDiv{
+  margin-right: 24px;
+}
+.searchDiv {
+  width: 200px;
+}
 .mainMenuButton {
-  margin: 16px 24px 16px 42px;
+  margin: 0px 24px 0px 42px;
   color: #17B9DA;
   flex-direction: row;
   align-items: center;
@@ -49,6 +54,9 @@
 .breadcrumb {
   padding-left: 50px;
 }
+.icon-with-desc p {
+  white-space: nowrap;
+}
 
 .icon-with-desc {
   display: flex;
@@ -61,7 +69,8 @@
     background-image: url("../app/iszh-icons/iszh_main_icon.svg");
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 18px 16px 18px 24px;
+    margin: 18px 0 18px 0;
+
   }
 }
 .settings-icon-desc {
@@ -87,7 +96,7 @@
 
 .icon-desc {
   line-height: normal;
-  margin-top: auto;
+  margin: 0 16px 0 16px;
   width: 70%;
   font-weight: 600;
   display: inline;

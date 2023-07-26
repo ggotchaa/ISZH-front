@@ -1,3 +1,35 @@
+::ng-deep .ant-row {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+}
+
+.list-users-text{
+  background-color: #ffffff;
+  display: flex;
+}
+
+.text-container{
+  align-self: center;
+  margin-left: 40%;
+}
+
+.service-button{
+  border-radius: 4px;
+  border-color: #17B9DA;
+  width: 80px;
+  height: 30px;
+}
+.service-button:active {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
+  color: hsl(0, 0%, 100%);
+  transform: translateY(10px);
+  transition: 100ms;
+}
+.service-buttons-container {
+  display: flex;
+  margin-left: 40px;
+}
 .setbar {
   justify-content: space-between;
   align-items: center;
@@ -5,8 +37,7 @@
   display: flex;
   gap: 24px;
   position: relative;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 40px;
 }
 ::ng-deep .ant-row {
   display: flex;
@@ -25,16 +56,36 @@
   position: relative;
   width: fit-content;
 }
-.addOrg{
+.addRole{
   border-radius: 4px;
-  background: #77C48D;
-  border-color: #77C48D;
+  background-color: #77C48D;
   height: 48px;
+  width: 205px;
+  color: white;
+  border: 0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
 }
-.tableSettingBtn {
+
+.addRole:active {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
+  color: hsl(0, 0%, 100%);
+  transform: translateY(10px);
+  transition: 100ms;
+}
+
+.export-excel-button{
   border-radius: 4px;
   height: 48px;
   font-family: Inter, sans-serif;
   font-size: 14px;
   font-weight: 600;
+
+}
+.export-excel-button:active {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #145764;
+  color: hsl(0, 0%, 100%);
+  transform: translateY(10px);
+  transition: 100ms;
 }

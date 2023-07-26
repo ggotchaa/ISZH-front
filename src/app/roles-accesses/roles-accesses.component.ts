@@ -94,6 +94,17 @@ export class RolesAccessesComponent {
     console.log('Edit action', item);
   }
   //endregion
+
+  // region: View Organization Modal
+  isVisibleViewModal = false;
+  modalTitleView = 'Просмотр';
+
+  openViewModal(item: RandomUser): void {
+    this.isVisibleEditModal = true;
+    this.modalTitle = this.modalTitleEdit;
+    console.log('View action', item);
+  }
+  //endregion
   constructor(private randomUserService: RandomUserService) {}
 
   loadDataFromServer(pageIndex: number, pageSize: number): void {
@@ -105,6 +116,7 @@ export class RolesAccessesComponent {
     });
   }
   ConfigureActionColumn = [
+    { name: 'Просмотр', callback: this.openViewModal },
     { name: 'Редактировать', callback: this.openEditModal },
     { name: 'Удалить', callback: this.openDeleteModal },
     { name: 'История', callback: this.openHistoryModal }
@@ -112,6 +124,9 @@ export class RolesAccessesComponent {
 
   onActionClick(event: {item: RandomUser, action: string}): void {
     switch(event.action) {
+      case 'Просмотр':
+        this.openViewModal(event.item);
+        break;
       case 'Редактировать':
         this.openEditModal(event.item);
         break;
@@ -139,5 +154,8 @@ export class RolesAccessesComponent {
   }
   showModalSetting(): void {
     // this.isVisibleSetting = true;
+  }
+  handleModalCancel(): void {
+    this.isVisible = false;
   }
 }

@@ -1,8 +1,12 @@
+<nz-row>
+  <div class="list-users-text">
+    <h1 class="text-container">Роли и доступы</h1>
+  </div>
+</nz-row>
 <nz-row style="background: white; height: 70px">
   <div class="setbar">
     <nz-col [nzSpan]="4">
-      <button nz-button nzType="primary" class="addOrg" (click)="openModal()">
-        <span nz-icon nzType="plus" nzTheme="outline"></span>
+      <button nz-button nzType="primary" class="addRole" (click)="openModal()">
         Добавить роль
       </button>
     </nz-col>
@@ -10,7 +14,7 @@
       <button
         nz-button
         nzType="default"
-        class="tableSettingBtn"
+        class="export-excel-button"
         (click)="showModalSetting()"
       >
         <span
@@ -24,6 +28,40 @@
     </nz-col>
   </div>
 </nz-row>
+<nz-row style="background: white; height: 70px;">
+  <div class="service-buttons-container">
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        Общее
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        ИСЖ
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        ПЦ
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        РВЛ
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        РПО
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        ЕАСУ
+      </button>
+    </nz-col>
+  </div>
+</nz-row>
 <nz-row>
   <app-metadata
     [data]="listOfRandomUser"
@@ -33,3 +71,30 @@
     (actionClick)="onActionClick($event)"
   ></app-metadata>
 </nz-row>
+<app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
+                   (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+  <app-add-users-form></app-add-users-form>
+</app-dynamic-modal>
+<app-dynamic-modal
+  [isVisible]="isVisibleHistoryModal"
+  (isVisibleChange)="isVisibleHistoryModal = $event"
+  [modalTitle]="modalTitle"
+  [modalType]="'singleButton'"
+  (onCancel)="handleModalCancel()"
+  [confirmButtonTitle]="'Закрыть'"
+>
+  <app-organization-history></app-organization-history>
+</app-dynamic-modal>
+
+<app-dynamic-modal
+  [isVisible]="isVisibleDeletingModal"
+  (isVisibleChange)="isVisibleDeletingModal = $event"
+  [modalTitle]="modalTitle"
+  [modalType]="'doubleButton'"
+  [cancelButtonTitle]="'Отмена'"
+  [confirmButtonTitle]="'Удалить'"
+  (onCancel)="handleModalCancel()"
+  (onConfirm)="handleFormSubmit()"
+>
+  <app-deleting-form></app-deleting-form>
+</app-dynamic-modal>
