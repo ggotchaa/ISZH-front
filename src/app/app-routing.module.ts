@@ -8,42 +8,43 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AnimalRegistryComponent } from './animal-accounting/animal-registry/animal-registry.component';
 import { AnimalAccountingComponent } from './animal-accounting/animal-accounting.component';
+import {RolesAccessesComponent} from "./roles-accesses/roles-accesses.component";
 
 const routes: Routes = [
-  { 
-    path: '', 
-    redirectTo: 'home', 
+  {
+    path: '',
+    redirectTo: 'home',
     pathMatch: 'full',
     data: {
       breadcrumb: 'Домашняя страница'
     }
   }, // Redirect to the home page
-  { 
-    path: 'home', 
+  {
+    path: 'home',
     component: HomeComponent,
     data: {
       breadcrumb: 'Домашняя страница'
     }
   }, // Home page route
-  { 
-    path: 'login', 
-    component: LoginComponent, 
+  {
+    path: 'login',
+    component: LoginComponent,
     data: {
       breadcrumb: 'Вход'
     }
   }, // Login page route
-  { 
-    path: 'portal', 
+  {
+    path: 'portal',
     component: PortalComponent,
     data: {
       breadcrumb: 'Главная'
-    } 
+    }
   },
   {
     path: 'animal-accounting',
     component: AnimalAccountingComponent,
-    children: [{ 
-      path: 'animal-registry', 
+    children: [{
+      path: 'animal-registry',
       component: AnimalRegistryComponent,
       data: {
         breadcrumb: 'Реестр Животных' // Breadcrumb label for the Home page
@@ -58,6 +59,7 @@ const routes: Routes = [
     children: [
       { path: 'users', component: UsersComponent },
       { path: 'organizations', component: OrganizationsComponent },
+      { path: 'roles-accesses', component: RolesAccessesComponent},
     ],
     data: {
       breadcrumb: 'Администрирование' // Breadcrumb label for the Home page

@@ -80,6 +80,8 @@
   [isVisible]="isVisibleDeletingModal"
   (isVisibleChange)="isVisibleDeletingModal = $event"
   [modalTitle]="modalTitle"
+  [cancelButtonTitle]="'Нет'"
+  [confirmButtonTitle]="'Да'"
   (onCancel)="handleModalCancel()"
   (onConfirm)="handleFormSubmit()"
 >

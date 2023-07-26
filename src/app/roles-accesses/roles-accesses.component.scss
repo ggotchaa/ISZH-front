@@ -1,0 +1,40 @@
+.setbar {
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  gap: 24px;
+  position: relative;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+::ng-deep .ant-row {
+  display: flex;
+  flex-flow: row wrap;
+  flex-direction: column;
+}
+.frame-2 {
+  align-items: center;
+  background-color: #76c38c;
+  border-radius: 4px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 14px 16px;
+  position: relative;
+  width: fit-content;
+}
+.addOrg{
+  border-radius: 4px;
+  background: #77C48D;
+  border-color: #77C48D;
+  height: 48px;
+}
+.tableSettingBtn {
+  border-radius: 4px;
+  height: 48px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}

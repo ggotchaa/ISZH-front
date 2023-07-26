@@ -1,0 +1,35 @@
+<nz-row style="background: white; height: 70px">
+  <div class="setbar">
+    <nz-col [nzSpan]="4">
+      <button nz-button nzType="primary" class="addOrg" (click)="openModal()">
+        <span nz-icon nzType="plus" nzTheme="outline"></span>
+        Добавить роль
+      </button>
+    </nz-col>
+    <nz-col [nzSpan]="4">
+      <button
+        nz-button
+        nzType="default"
+        class="tableSettingBtn"
+        (click)="showModalSetting()"
+      >
+        <span
+          nz-icon
+          nzType="setting"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
+        Выгрузить в Excel
+      </button>
+    </nz-col>
+  </div>
+</nz-row>
+<nz-row>
+  <app-metadata
+    [data]="listOfRandomUser"
+    [columns]="columns"
+    [actions]="ConfigureActionColumn"
+    (queryChange)="onQueryParamsChange($event)"
+    (actionClick)="onActionClick($event)"
+  ></app-metadata>
+</nz-row>
