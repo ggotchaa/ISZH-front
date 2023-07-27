@@ -34,7 +34,7 @@
   display: flex;
   gap: 24px;
   position: relative;
-  margin-top: 10px;
+  margin-top: 32px;
   margin-left: 10px;
 }
 
@@ -83,10 +83,17 @@
   line-height: 16px;
   text-align: start;
   border: 0px;
+  height: 32px;
 }
 
 .regionText {
   margin: 0 32px 0 16px;
 }
 
+nz-input-group {
+  margin-bottom: 8px;
+}
 
+::ng-deep .highlight {
+  color: red;
+}

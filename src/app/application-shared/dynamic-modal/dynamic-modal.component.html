@@ -6,7 +6,7 @@
     <button
       *ngIf="modalType === 'doubleButton'"
       class="modalBtn"
-      style="background-color: #22222224; width: 110px"
+      style="background-color: #22222224; width: 110px; height: 39px"
       nz-button
       nzType="default"
       (click)="handleCancel()"
@@ -16,6 +16,7 @@
     <button
       class="modalBtn"
       [style.background-color]="modalType === 'singleButton' ? '#77C48D' : '#77C48D'"
+      style="width: 123px; height: 39px"
       nz-button
       nzType="default"
       (click)="handleOk()"

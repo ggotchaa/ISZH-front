@@ -93,59 +93,25 @@
   <div class="container-mid">
     <nz-col [nzSpan]="4">
       <nz-input-group [nzSuffix]="suffixIcon" class="regionSearch">
-        <input
-          type="text"
-          nz-input
-          placeholder="Наименование региона"
-          [(ngModel)]="searchValue"
-        />
+        <input type="text" nz-input placeholder="Наименование региона" ngModel (ngModelChange)="searchValue$.next($event)"/>
       </nz-input-group>
       <ng-template #suffixIcon>
         <span nz-icon nzType="menu" nzTheme="outline"></span>
       </ng-template>
-      <nz-row class="row">
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Акмолинская область
-          </button>
-        </nz-col
-        >
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Актюбинская область
-          </button>
-        </nz-col
-        >
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Алматинская область
-          </button>
-        </nz-col
-        >
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Атырауская область
-          </button>
-        </nz-col
-        >
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Западно-Казахстанская область
-          </button>
-        </nz-col
-        >
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Жамбылская область
-          </button>
-        </nz-col
-        >
-        <nz-col class="col">
-          <button nz-button nzType="default" class="regionBtn">
-            Карагандинская область
-          </button>
-        </nz-col>
-      </nz-row>
+
+      <nz-tree-view [nzTreeControl]="treeControl" [nzDataSource]="dataSource" nzNoAnimation class="regionBtn">
+        <nz-tree-node *nzTreeNodeDef="let node" nzTreeNodePadding>
+          <nz-tree-node-toggle nzTreeNodeNoopToggle></nz-tree-node-toggle>
+          <span [innerHTML]="node.name | nzHighlight: searchValue:'i':'highlight'"></span>
+        </nz-tree-node>
+
+        <nz-tree-node *nzTreeNodeDef="let node; when: hasChild" nzTreeNodePadding>
+          <nz-tree-node-toggle>
+            <span nz-icon nzType="caret-down" nzTreeNodeToggleRotateIcon></span>
+          </nz-tree-node-toggle>
+          <span [innerHTML]="node.name | nzHighlight: searchValue:'i':'highlight'"></span>
+        </nz-tree-node>
+      </nz-tree-view>
     </nz-col>
     <nz-col [nzSpan]="16">
       <app-metadata

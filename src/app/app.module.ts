@@ -67,6 +67,9 @@ import { DeletingFormComponent } from './application-shared/dynamic-modal/modal-
 import { OrganizationHistoryComponent } from './application-shared/dynamic-modal/modal-contents/organization-history/organization-history.component';
 import { AnimalRegistryComponent } from './portal/animal-accounting/animal-registry/animal-registry.component';
 import { AnimalAccountingComponent } from './portal/animal-accounting/animal-accounting.component';
+import {NzTreeViewModule} from "ng-zorro-antd/tree-view";
+import {NzHighlightModule} from "ng-zorro-antd/core/highlight";
+import { RolesAccessesComponent } from './roles-accesses/roles-accesses.component';
 
 registerLocaleData(en);
 
@@ -90,6 +93,7 @@ registerLocaleData(en);
     AnimalAccountingComponent,
     DeletingFormComponent,
     OrganizationHistoryComponent,
+    RolesAccessesComponent,
   ],
   imports: [
     BrowserModule,
@@ -140,6 +144,8 @@ registerLocaleData(en);
     NzPopconfirmModule,
     NzDividerModule,
     NzBadgeModule,
+    NzTreeViewModule,
+    NzHighlightModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

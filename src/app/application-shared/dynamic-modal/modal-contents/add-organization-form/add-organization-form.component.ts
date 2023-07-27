@@ -9,9 +9,15 @@ export class AddOrganizationFormComponent implements OnInit{
 
   date = null;
   selectedValue = null;
+  isBlocked = false;
 
   onChange(result: Date): void {
     console.log('onChange: ', result);
+  }
+
+  blockBtn(): void {
+    this.isBlocked = !this.isBlocked;
+    console.log("Заблокировано -" + this.isBlocked)
   }
 
   ngOnInit(): void {

@@ -97,12 +97,13 @@
         <input nz-input name="name" ngModel required class="modalInput">
       </nz-form-control>
     </nz-form-item>
-    <nz-form-item>
+    <nz-form-item style="display: flex">
       <nz-form-label>Заблокированное
         </nz-form-label>
-      <nz-form-control>
-        <input nz-input name="name" ngModel required class="modalInput">
-      </nz-form-control>
+      <label nz-checkbox [(ngModel)]="isBlocked">
+        Да/Нет
+      </label>
+
     </nz-form-item>
     <nz-form-item>
       <nz-form-label>Дата начала действия
