@@ -7,18 +7,23 @@
           <a class="menuTitle">Меню</a>
         </button>
       </div>
-      <div nz-col [nzSpan]="6" class="icon-with-desc">
+      <div nz-col [nzSpan]="6" style="align-items: center; display: flex" class="icon-with-desc">
         <p class="icon-desc">
           Информационная система «Идентификация <br> сельскохозяйственных животных»
         </p>
       </div>
-      <div nz-col [nzSpan]="8" >
+      <div nz-col [nzSpan]="8" class="searchCol">
         <nz-input-group [nzSuffix]="suffixIconSearch" class="searchDiv">
           <input  type="text" nz-input placeholder="Поиск" />
         </nz-input-group>
       </div>
-      <div nz-col [nzSpan]="2">KZ/RU</div>
-      <div nz-col [nzSpan]="2"><p class="settings-icon-desc">Настройки сайта</p></div>
+      <div nz-col  class="changeLanguage">
+        <nz-select [ngModel]="'RU'" class="selectLanguage">
+          <nz-option [nzLabel]="'RU'" [nzValue]="'RU'"></nz-option>
+          <nz-option [nzLabel]="'KZ'" [nzValue]="'KZ'"></nz-option>
+        </nz-select>
+      </div>
+      <div nz-col [nzSpan]="2" class="settingsBtnDiv"><button class="settings-icon-desc"><p class="settingsBtnText">Настройки сайта</p></button></div>
       <div nz-col [nzSpan]="4">
         <button nz-button nzType="primary" class="loginButton" routerLink="/login" *ngIf="(isLoggedIn$ | async) === false">
           <span nz-icon nzType="login" nzTheme="outline" class="loginIcon"></span>

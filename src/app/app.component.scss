@@ -3,6 +3,7 @@
   padding: 0px;
 }
 
+
 .menuTitle {
   width: 42px;
   height: 16px;
@@ -16,8 +17,25 @@
 .menuBtnDiv{
   margin-right: 24px;
 }
+.searchCol{
+  text-align: end;
+}
 .searchDiv {
+  border: none;
   width: 200px;
+  justify-content: end;
+  padding-right: 24px;
+}
+.changeLanguage {
+  margin-left: 24px;
+}
+.selectLanguage {
+  margin-right: 24px;
+  border: 1px solid white;
+  padding: 0;
+}
+.dropdownIcon {
+  font-weight: 600;
 }
 .mainMenuButton {
   margin: 0px 24px 0px 42px;
@@ -73,13 +91,28 @@
 
   }
 }
-.settings-icon-desc {
+.settingsBtnDiv {
+  margin: 0 24px 0 24px;
+  padding: 15.5px 24px 16.5px 0;
+}
+.settingsBtnText {
   margin: 0 auto;
+}
+.settings-icon-desc {
+  width: 165px;
+  height: 36px;
+  text-align: center;
+  padding: 8px 10px 8px 0;
   position: relative;
   line-height: normal;
-  font-weight: 600;
-  display: inline;
+  font-weight: 700;
+  display: flex;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  background-color: white;
+  border: none;
   &:before {
+    margin: 0 auto;
     content: "";
     display: inline-block;
     width: 20px;
@@ -89,6 +122,7 @@
     background-size: cover;
   }
 }
+
 
 .menu-row {
   flex-flow: inherit;

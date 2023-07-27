@@ -39,7 +39,7 @@
             <!-- Show the "Войти" (Login) button if showPasswordForm is false -->
             <button
               nz-button
-              nzType="primary"
+              class="login-form-button"
               type="submit"
               (click)="login()"
               *ngIf="!showPasswordForm"
@@ -49,6 +49,7 @@
 
             <!-- Show the "Войти с ЭЦП" (Login with Digital Signature) button if showPasswordForm is false -->
             <button
+              class="login_with_ecp"
               nz-button
               (click)="toggleShowPasswordForm()"
               *ngIf="!showPasswordForm"
