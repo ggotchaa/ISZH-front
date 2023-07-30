@@ -70,6 +70,7 @@ import { AnimalAccountingComponent } from './portal/animal-accounting/animal-acc
 import {NzTreeViewModule} from "ng-zorro-antd/tree-view";
 import {NzHighlightModule} from "ng-zorro-antd/core/highlight";
 import { RolesAccessesComponent } from './roles-accesses/roles-accesses.component';
+import { AddAnimalsComponent } from './add-animals/add-animals.component';
 
 registerLocaleData(en);
 
@@ -94,6 +95,7 @@ registerLocaleData(en);
     DeletingFormComponent,
     OrganizationHistoryComponent,
     RolesAccessesComponent,
+    AddAnimalsComponent,
   ],
   imports: [
     BrowserModule,

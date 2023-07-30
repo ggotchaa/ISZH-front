@@ -1,0 +1,77 @@
+<!--<nz-steps nzDirection="vertical" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)">-->
+<!--  <nz-step nzTitle="Шаг 1"></nz-step>-->
+<!--  <nz-step nzTitle="Шаг 1"></nz-step>-->
+<!--</nz-steps>-->
+<div class="container">
+  <ng-container>
+    <nz-row>
+      <div class="list-users-text">
+        <h1 class="text-container">Добавление животных</h1>
+      </div>
+    </nz-row>
+    <nz-steps nzDirection="vertical" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)"
+              class="stepsContainer">
+      <nz-step nzTitle="Шаг 1"></nz-step>
+      <nz-divider></nz-divider>
+      <nz-card class="custom-card" [ngStyle]="cardStyle">
+        <nz-row>
+          <nz-col>
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
+                       class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col>
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
+                       class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col>
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
+                       class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+        </nz-row>
+        <nz-row>
+          <nz-col>
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
+                       class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col>
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
+                       class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col>
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue"
+                       class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+        </nz-row>
+      </nz-card>
+      <nz-step nzTitle="Шаг 2"></nz-step>
+      <nz-divider></nz-divider>
+      <nz-card class="custom-card" [ngStyle]="cardStyle">
+
+      </nz-card>
+    </nz-steps>
+  </ng-container>
+</div>

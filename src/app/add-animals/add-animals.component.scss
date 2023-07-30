@@ -1,0 +1,41 @@
+::ng-deep .ant-row {
+  display: flex;
+  //flex-flow: row wrap;
+  //flex-direction: column;
+}
+.container {
+  padding-left: 72px;
+  padding-right: 88px;
+}
+.list-users-text{
+  display: flex;
+}
+.text-container{
+  margin: 24px 0 24px 0;
+  align-self: start;
+  font-weight: 600;
+  font-size: 24px;
+  font-family: Inter, sans-serif;
+  line-height: 29px;
+
+}
+.stepsContainer {
+  background-color: white; padding: 24px;
+}
+.custom-card {
+  margin-bottom: 32px;
+  border: none;
+  display: flex;
+}
+.modalInput {
+  width: 404px;
+  height: 40px;
+  margin: 0px 16px 16px 0px;
+  border-radius: 4px;
+}
+.modalInputText {
+  margin: 0;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+}

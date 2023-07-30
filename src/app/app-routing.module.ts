@@ -1,14 +1,15 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { PortalComponent } from './portal/portal.component';
-import { AdministrationComponent } from './portal/administration/administration.component';
-import { OrganizationsComponent } from './portal/administration/organizations/organizations.component';
-import { UsersComponent } from './portal/administration/users/users.component';
-import { HomeComponent } from './home/home.component';
-import { LoginComponent } from './login/login.component';
-import { AnimalRegistryComponent } from './portal/animal-accounting/animal-registry/animal-registry.component';
-import { AnimalAccountingComponent } from './portal/animal-accounting/animal-accounting.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {PortalComponent} from './portal/portal.component';
+import {AdministrationComponent} from './portal/administration/administration.component';
+import {OrganizationsComponent} from './portal/administration/organizations/organizations.component';
+import {UsersComponent} from './portal/administration/users/users.component';
+import {HomeComponent} from './home/home.component';
+import {LoginComponent} from './login/login.component';
+import {AnimalRegistryComponent} from './portal/animal-accounting/animal-registry/animal-registry.component';
+import {AnimalAccountingComponent} from './portal/animal-accounting/animal-accounting.component';
 import {RolesAccessesComponent} from "./roles-accesses/roles-accesses.component";
+import {AddAnimalsComponent} from "./add-animals/add-animals.component";
 
 const routes: Routes = [
   {
@@ -48,18 +49,26 @@ const routes: Routes = [
       component: AnimalRegistryComponent,
       data: {
         breadcrumb: 'Реестр Животных' // Breadcrumb label for the Home page
-      } }],
+      }
+    }],
     data: {
       breadcrumb: 'Учет животных' // Breadcrumb label for the Home page
+    }
+  },
+  {
+    path: 'add-animals',
+    component: AddAnimalsComponent,
+    data: {
+      breadcrumb: 'Добавление животных'
     }
   },
   {
     path: 'administration',
     component: AdministrationComponent,
     children: [
-      { path: 'users', component: UsersComponent },
-      { path: 'organizations', component: OrganizationsComponent },
-      { path: 'roles-accesses', component: RolesAccessesComponent},
+      {path: 'users', component: UsersComponent},
+      {path: 'organizations', component: OrganizationsComponent},
+      {path: 'roles-accesses', component: RolesAccessesComponent},
     ],
     data: {
       breadcrumb: 'Администрирование' // Breadcrumb label for the Home page
@@ -71,4 +80,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}
