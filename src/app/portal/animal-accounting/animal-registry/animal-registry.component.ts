@@ -8,6 +8,7 @@ import {BehaviorSubject, combineLatest} from 'rxjs';
 import {auditTime, map} from 'rxjs/operators';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {NzTreeFlatDataSource, NzTreeFlattener} from 'ng-zorro-antd/tree-view';
+import {ActivatedRoute, Router} from "@angular/router";
 
 interface TreeNode {
   name: string;
@@ -143,6 +144,25 @@ export class AnimalRegistryComponent {
   originData$ = new BehaviorSubject(TREE_DATA);
   searchValue$ = new BehaviorSubject<string>('');
 
+
+  selectedMenu: string | undefined;
+  selectedMenuItem: string | undefined;
+  selectedTab: string | null = null;
+
+  onTabChange(event: number): void {
+  }
+
+  showContent(menuItem: string): void {
+    this.selectedMenu = menuItem;
+    this.router.navigate([`/${menuItem}`]);
+  }
+
+
+  openContent(event: { item: { key: string } }): void {
+    this.selectedMenuItem = event.item.key;
+  }
+
+
   transformer = (node: TreeNode, level: number): FlatNode => {
     const existingNode = this.nestedNodeMap.get(node);
     const flatNode =
@@ -183,7 +203,7 @@ export class AnimalRegistryComponent {
     )
   ]).pipe(map(([data, value]) => (value ? filterTreeData(data, value) : new FilteredTreeResult(data))));
 
-  constructor(private getListService: GetAnimalListService) {
+  constructor(private getListService: GetAnimalListService, private router: Router, private route: ActivatedRoute) {
     this.filteredData$.subscribe(result => {
       this.dataSource.setData(result.treeData);
 
@@ -288,5 +308,6 @@ export class AnimalRegistryComponent {
 
   ngOnInit(): void {
     this.loadDataFromServer(this.pageIndex, this.pageSize);
+    this.selectedTab = this.route.snapshot.firstChild?.routeConfig?.path ?? 'users';
   }
 }
