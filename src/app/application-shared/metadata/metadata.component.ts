@@ -57,31 +57,31 @@ export class MetadataComponent implements OnInit {
     return item === (value === 'true');
   }
 
-  // onPageIndexChange(index: number): void {
-  //   this.pageIndex = index;
-  //   this.updateData();
-  // }
+  onPageIndexChange(index: number): void {
+    this.pageIndex = index;
+    this.updateData();
+  }
 
-  // onPageSizeChange(size: number): void {
-  //   this.pageSize = size;
-  //   this.updateData();
-  // }
+  onPageSizeChange(size: number): void {
+    this.pageSize = size;
+    this.updateData();
+  }
 
-  // sortData(sort: { key: string, value: string }): void {
-  //   const data = [...this.data];
-  //   if (sort.key && sort.value) {
-  //     this.data = data.sort((a, b) =>
-  //       sort.value === 'ascend'
-  //         ? this.getValue(a, sort.key) > this.getValue(b, sort.key) ? 1 : -1
-  //         : this.getValue(b, sort.key) > this.getValue(a, sort.key) ? 1 : -1
-  //     );
-  //   } else {
-  //     this.data = data;
-  //   }
-  //   this.updateData();
-  // }
+  sortData(sort: { key: string, value: string }): void {
+    const data = [...this.data];
+    if (sort.key && sort.value) {
+      this.data = data.sort((a, b) =>
+        sort.value === 'ascend'
+          ? this.getValue(a, sort.key) > this.getValue(b, sort.key) ? 1 : -1
+          : this.getValue(b, sort.key) > this.getValue(a, sort.key) ? 1 : -1
+      );
+    } else {
+      this.data = data;
+    }
+    this.updateData();
+  }
 
-  // updateData(): void {
-  //   this.data = this.data.slice((this.pageIndex - 1) * this.pageSize, this.pageIndex * this.pageSize);
-  //}
+  updateData(): void {
+    this.data = this.data.slice((this.pageIndex - 1) * this.pageSize, this.pageIndex * this.pageSize);
+  }
 }
