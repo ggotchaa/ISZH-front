@@ -26,7 +26,7 @@ export class AnimalAccountingComponent {
   }
 
   ngOnInit(): void {
-    this.selectedTab = this.route.snapshot.firstChild?.routeConfig?.path ?? 'users';
+    this.selectedTab = this.route.snapshot.firstChild?.routeConfig?.path ?? 'animal-registry';
   }
 
 }

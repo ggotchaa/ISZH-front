@@ -1,0 +1,11 @@
+[
+    { "key": "login", "title": "First Name", "sort": true, "filter": false },
+    { "key": "orgStructure", "title": "Last Name", "sort": true , "filter": false},
+    { "key": "email", "title": "Gender", "filter": true },
+    { "key": "lastName", "title": "Фамилия", "sort": true, "filter": false },
+    { "key": "firstName", "title": "Имя", "sort": true, "filter": false },
+    { "key": "middleName", "title": "Отчество", "sort": true, "filter": false },
+    { "key": "birthDate", "title": "Дата рождения", "sort": true, "filter": false },
+    { "key": "tel", "title": "Телефон", "sort": true, "filter": false },
+    { "key": "roleId", "title": "Роль", "sort": true, "filter": false }
+  ]

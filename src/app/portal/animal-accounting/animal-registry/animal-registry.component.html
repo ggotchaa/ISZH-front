@@ -1,7 +1,12 @@
-<nz-row style="background: white; height: 70px;">
+<nz-row style="background: white; height: 70px">
   <div class="setbar">
     <nz-col [nzSpan]="4">
-      <button nz-button nzType="default" class="addAnimalsBtn" (click)="showContent('add-animals')">
+      <button
+        nz-button
+        nzType="default"
+        class="addAnimalsBtn"
+        (click)="showContent('add-animals')"
+      >
         <span
           nz-icon
           nzType="plus"
@@ -59,59 +64,27 @@
     </nz-col>
   </div>
 </nz-row>
-<nz-row>
-  <app-dynamic-modal
-    [isVisible]="isVisibleSetting"
-    (isVisibleChange)="isVisibleSetting = $event"
-    [modalTitle]="modalTitle"
-    (onCancel)="handleModalCancel()"
-    (onConfirm)="handleFormSubmit()"
-    [modalType]="'doubleButton'"
-    [cancelButtonTitle]="'Сбросить'"
-    [confirmButtonTitle]="'Применить'"
-  >
-    <app-table-settings-form></app-table-settings-form>
-  </app-dynamic-modal>
-</nz-row>
-<nz-row>
-  <app-dynamic-modal
-    [isVisible]="isVisible"
-    (isVisibleChange)="isVisible = $event"
-    [modalTitle]="modalTitle"
-    (onCancel)="handleModalCancel()"
-    (onConfirm)="handleFormSubmit()"
-    [modalType]="'doubleButton'"
-    [cancelButtonTitle]="'Сбросить'"
-    [confirmButtonTitle]="'Применить'"
-  >
-    <app-search-animal-filter></app-search-animal-filter>
-  </app-dynamic-modal>
-</nz-row>
-
-
-<nz-row style="background: white;">
+<nz-row style="background: white">
   <div class="container-mid">
     <nz-col [nzSpan]="4">
       <nz-input-group [nzSuffix]="suffixIcon" class="regionSearch">
-        <input type="text" nz-input placeholder="Наименование региона" ngModel (ngModelChange)="searchValue$.next($event)"/>
+        <input
+          type="text"
+          nz-input
+          placeholder="Наименование региона"
+          ngModel
+          (ngModelChange)="searchValue$.next($event)"
+        />
       </nz-input-group>
       <ng-template #suffixIcon>
         <span nz-icon nzType="menu" nzTheme="outline"></span>
       </ng-template>
 
-      <nz-tree-view [nzTreeControl]="treeControl" [nzDataSource]="dataSource" nzNoAnimation class="regionBtn">
-        <nz-tree-node *nzTreeNodeDef="let node" nzTreeNodePadding>
-          <nz-tree-node-toggle nzTreeNodeNoopToggle></nz-tree-node-toggle>
-          <span [innerHTML]="node.name | nzHighlight: searchValue:'i':'highlight'"></span>
-        </nz-tree-node>
-
-        <nz-tree-node *nzTreeNodeDef="let node; when: hasChild" nzTreeNodePadding>
-          <nz-tree-node-toggle>
-            <span nz-icon nzType="caret-down" nzTreeNodeToggleRotateIcon></span>
-          </nz-tree-node-toggle>
-          <span [innerHTML]="node.name | nzHighlight: searchValue:'i':'highlight'"></span>
-        </nz-tree-node>
-      </nz-tree-view>
+      <nz-tree
+        [nzData]="nodes"
+        nzAsyncData
+        (nzExpandChange)="onExpandChange($event)"
+      ></nz-tree>
     </nz-col>
     <nz-col [nzSpan]="16">
       <app-metadata
@@ -123,3 +96,27 @@
     </nz-col>
   </div>
 </nz-row>
+<app-dynamic-modal
+  [isVisible]="isVisibleSetting"
+  (isVisibleChange)="isVisibleSetting = $event"
+  [modalTitle]="modalTitle"
+  (onCancel)="handleModalCancel()"
+  (onConfirm)="handleFormSubmit()"
+  [modalType]="'doubleButton'"
+  [cancelButtonTitle]="'Сбросить'"
+  [confirmButtonTitle]="'Применить'"
+>
+  <app-table-settings-form></app-table-settings-form>
+</app-dynamic-modal>
+<app-dynamic-modal
+  [isVisible]="isVisible"
+  (isVisibleChange)="isVisible = $event"
+  [modalTitle]="modalTitle"
+  (onCancel)="handleModalCancel()"
+  (onConfirm)="handleFormSubmit()"
+  [modalType]="'doubleButton'"
+  [cancelButtonTitle]="'Сбросить'"
+  [confirmButtonTitle]="'Применить'"
+>
+  <app-search-animal-filter></app-search-animal-filter>
+</app-dynamic-modal>

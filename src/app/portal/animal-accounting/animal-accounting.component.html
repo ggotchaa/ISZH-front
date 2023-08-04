@@ -1,15 +1,15 @@
 <div class="container">
   <nz-row>
     <div class="pc-tab">
-      <input id="users" type="radio" name="pct" [checked]="selectedTab === 'users'" />
-      <input id="organizations" type="radio" name="pct" [checked]="selectedTab === 'organizations'" />
+      <input id="animal-registry" type="radio" name="pct" [checked]="selectedTab === 'animal-registry'" />
+      <input id="statistics" type="radio" name="pct" [checked]="selectedTab === 'statistics'" />
       <nav>
         <ul>
-          <li class="organizations">
-            <label for="organizations" (click)="showContent('organizations')">Статистика</label>
+          <li class="statistics">
+            <label for="statistics" (click)="showContent('statistics')">Статистика</label>
           </li>
-          <li class="users">
-            <label for="users" (click)="showContent('animal-registry')">Реестр животных</label>
+          <li class="animal-registry">
+            <label for="animal-registry" (click)="showContent('animal-registry')">Реестр животных</label>
           </li>
         </ul>
       </nav>
