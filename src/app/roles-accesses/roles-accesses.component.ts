@@ -41,10 +41,15 @@ export class RolesAccessesComponent {
   loading = true;
   pageSize = 20;
   pageIndex = 1;
+  isVisibleFilter = false;
 
   //region: Add Organization Modal
   isVisible = false;
   modalTitle = 'Добавить Организацию';
+
+  showModalFilter(): void {
+    this.isVisibleFilter = true;
+  }
 
   openModal(): void {
     this.isVisible = true;

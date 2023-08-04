@@ -1,14 +1,39 @@
-<nz-row>
-  <div class="list-users-text">
-    <h1 class="text-container">Роли и доступы</h1>
-  </div>
-</nz-row>
 <nz-row style="background: white; height: 70px">
   <div class="setbar">
     <nz-col [nzSpan]="4">
       <button nz-button nzType="primary" class="addRole" (click)="openModal()">
         Добавить роль
       </button>
+    </nz-col>
+    <nz-col [nzSpan]="16">
+      <nz-input-group
+        [nzPrefix]="prefixIconSearch"
+        [nzSuffix]="suffixIconFilter"
+        class="searchInput"
+      >
+        <input
+          class="inputText"
+          type="text"
+          nz-input
+          placeholder="Поиск по параметрам"
+        />
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <span
+          nz-icon
+          nzType="search"
+          style="color: #17b9da; margin-right: 5px"
+        ></span>
+      </ng-template>
+      <ng-template #suffixIconFilter>
+        <span
+          nz-icon
+          nzType="filter"
+          nzTheme="fill"
+          style="color: black; margin-right: 5px"
+        ></span>
+        <p class="filters" (click)="showModalFilter()">Фильтры</p>
+      </ng-template>
     </nz-col>
     <nz-col [nzSpan]="4">
       <button

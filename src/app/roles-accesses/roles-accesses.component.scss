@@ -3,15 +3,20 @@
   flex-flow: row wrap;
   flex-direction: column;
 }
-
-.list-users-text{
-  background-color: #ffffff;
-  display: flex;
+.searchInput {
+  border-radius: 4px;
+  height: 48px;
 }
-
-.text-container{
-  align-self: center;
-  margin-left: 40%;
+.inputText {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+}
+.filters {
+  margin: auto;
+  font-weight: 600;
+  font-size: 14px;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
 }
 
 .service-button{
@@ -28,7 +33,7 @@
 }
 .service-buttons-container {
   display: flex;
-  margin-left: 40px;
+  margin: 24px 24px 24px 24px;
 }
 .setbar {
   justify-content: space-between;
@@ -37,7 +42,7 @@
   display: flex;
   gap: 24px;
   position: relative;
-  margin-left: 40px;
+  margin: 32px 24px 24px 24px;
 }
 ::ng-deep .ant-row {
   display: flex;
