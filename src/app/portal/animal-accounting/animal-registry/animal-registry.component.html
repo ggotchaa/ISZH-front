@@ -1,6 +1,6 @@
-<nz-row style="background: white; height: 70px">
+<nz-row style="background: white;">
   <div class="setbar">
-    <nz-col [nzSpan]="4">
+    <nz-col>
       <button
         nz-button
         nzType="default"
@@ -16,7 +16,7 @@
         Добавить животных
       </button>
     </nz-col>
-    <nz-col [nzSpan]="16">
+    <nz-col [nzSpan]="17">
       <nz-input-group
         [nzPrefix]="prefixIconSearch"
         [nzSuffix]="suffixIconFilter"
@@ -46,7 +46,7 @@
         <p class="filters" (click)="showModalFilter()">Фильтры</p>
       </ng-template>
     </nz-col>
-    <nz-col [nzSpan]="4">
+    <nz-col>
       <button
         nz-button
         nzType="default"
@@ -64,9 +64,9 @@
     </nz-col>
   </div>
 </nz-row>
-<nz-row style="background: white">
+<nz-row style="background: white; padding: 0 24px 0 24px">
   <div class="container-mid">
-    <nz-col [nzSpan]="4">
+    <nz-col style="margin-right: 24px;">
       <nz-input-group [nzSuffix]="suffixIcon" class="regionSearch">
         <input
           type="text"
@@ -80,13 +80,21 @@
         <span nz-icon nzType="menu" nzTheme="outline"></span>
       </ng-template>
 
-      <nz-tree
-        [nzData]="nodes"
-        nzAsyncData
-        (nzExpandChange)="onExpandChange($event)"
-      ></nz-tree>
+      <nz-tree-view [nzTreeControl]="treeControl" [nzDataSource]="dataSource" nzNoAnimation class="regionBtn">
+        <nz-tree-node *nzTreeNodeDef="let node" nzTreeNodePadding>
+          <nz-tree-node-toggle nzTreeNodeNoopToggle></nz-tree-node-toggle>
+          <span [innerHTML]="node.name | nzHighlight: searchValue:'i':'highlight'"></span>
+        </nz-tree-node>
+
+        <nz-tree-node *nzTreeNodeDef="let node; when: hasChild" nzTreeNodePadding>
+          <nz-tree-node-toggle>
+            <span nz-icon nzType="caret-down" nzTreeNodeToggleRotateIcon></span>
+          </nz-tree-node-toggle>
+          <span [innerHTML]="node.name | nzHighlight: searchValue:'i':'highlight'"></span>
+        </nz-tree-node>
+      </nz-tree-view>
     </nz-col>
-    <nz-col [nzSpan]="16">
+    <nz-col style="width: 100%;">
       <app-metadata
         [data]="listOfData"
         [columns]="columns"
