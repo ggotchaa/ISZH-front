@@ -1,0 +1,135 @@
+<div class="container">
+  <ng-container>
+    <nz-row>
+      <div class="list-users-text">
+        <h1 class="text-container">Добавление животных</h1>
+      </div>
+    </nz-row>
+    <nz-steps nzDirection="vertical" [nzCurrent]="index" (nzIndexChange)="onIndexChange($event)" class="stepsContainer">
+      <nz-step class="stepsContent" nzTitle="Шаг 1"></nz-step>
+      <nz-divider class="stepDivider"></nz-divider>
+      <nz-card class="custom-card" [ngStyle]="cardStyle">
+        <nz-row class="stepsContent">
+          <nz-col nzSpan="8">
+            <p class="modalInputText">Регион: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите регион" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col nzSpan="8">
+            <p class="modalInputText">Основание регистрации: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите основание регистрации" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col nzSpan="8">
+            <p class="modalInputText">Владелец: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите владельца" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+        </nz-row>
+        <nz-row class="stepsContent">
+          <nz-col nzSpan="8">
+            <p class="modalInputText">Вид животного: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите вид" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col nzSpan="8">
+            <p class="modalInputText">Направление: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите направление" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+          <nz-col nzSpan="8">
+            <p class="modalInputText">Порода: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите породу" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+        </nz-row>
+        <nz-row class="stepsContent">
+          <nz-col nzSpan="24">
+            <p class="modalInputText">Тип идентификации: </p>
+            <nz-select nzSize="large" nzAllowClear nzShowSearch nzPlaceHolder="Выберите тип идентификации" [(ngModel)]="selectedValue" class="modalInput">
+              <nz-option [nzLabel]="'Астана'" [nzValue]="'Астана'"></nz-option>
+              <nz-option [nzLabel]="'Алмата'" [nzValue]="'Алмата'"></nz-option>
+            </nz-select>
+          </nz-col>
+        </nz-row>
+        <nz-row class="stepsContent">
+          <nz-col>
+            <button
+              nz-button
+              nzType="default"
+              class="addAnimalsBtn"
+            >
+        <span
+          nz-icon
+          nzType="plus"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
+              Добавить животное
+            </button>
+          </nz-col>
+        </nz-row>
+      </nz-card>
+      <div class="grayBlock"></div>
+      <nz-step class="stepsContent" nzTitle="Шаг 2"></nz-step>
+      <nz-divider></nz-divider>
+        <nz-row class="tableRow">
+          <app-metadata
+            [data]="listOfRandomUser"
+            [columns]="columns"
+            [actions]="ConfigureActionColumn"
+            (queryChange)="onQueryParamsChange($event)"
+            (actionClick)="onActionClick($event)"
+          ></app-metadata>
+          <nz-col [nzSpan]="4">
+            <button
+              nz-button
+              nzType="default"
+              class="saveBtn"
+            >
+              Сохранить
+            </button>
+          </nz-col>
+        </nz-row>
+        <app-dynamic-modal [isVisible]="isVisible" (isVisibleChange)="isVisible = $event" [modalTitle]="modalTitle"
+                           (onCancel)="handleModalCancel()" (onConfirm)="handleFormSubmit()">
+          <app-add-users-form></app-add-users-form>
+        </app-dynamic-modal>
+        <app-dynamic-modal
+          [isVisible]="isVisibleHistoryModal"
+          (isVisibleChange)="isVisibleHistoryModal = $event"
+          [modalTitle]="modalTitle"
+          [modalType]="'singleButton'"
+          (onCancel)="handleModalCancel()"
+          [confirmButtonTitle]="'Закрыть'"
+        >
+          <app-organization-history></app-organization-history>
+        </app-dynamic-modal>
+
+        <app-dynamic-modal
+          [isVisible]="isVisibleDeletingModal"
+          (isVisibleChange)="isVisibleDeletingModal = $event"
+          [modalTitle]="modalTitle"
+          [modalType]="'doubleButton'"
+          [cancelButtonTitle]="'Отмена'"
+          [confirmButtonTitle]="'Удалить'"
+          (onCancel)="handleModalCancel()"
+          (onConfirm)="handleFormSubmit()"
+        >
+          <app-deleting-form></app-deleting-form>
+        </app-dynamic-modal>
+    </nz-steps>
+  </ng-container>
+</div>

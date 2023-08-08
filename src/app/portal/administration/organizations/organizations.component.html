@@ -1,13 +1,22 @@
-<nz-row style="background: white; height: 70px">
+<nz-row style="background: white">
   <div class="setbar">
-    <nz-col [nzSpan]="4">
+    <nz-col>
       <button nz-button nzType="primary" class="addOrg" (click)="openModal()">
-        <span nz-icon nzType="plus" nzTheme="outline"></span>
+        <span
+          nz-icon
+          nzType="plus"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
         Добавить организацию
       </button>
     </nz-col>
-    <nz-col [nzSpan]="16">
-      <nz-input-group [nzPrefix]="prefixIconSearch" class="searchInput">
+    <nz-col nzSpan="17">
+      <nz-input-group
+        [nzPrefix]="prefixIconSearch"
+        [nzSuffix]="suffixIconFilter"
+        class="searchInput"
+      >
         <input
           class="inputText"
           type="text"
@@ -22,12 +31,21 @@
           style="color: #17b9da; margin-right: 5px"
         ></span>
       </ng-template>
+      <ng-template #suffixIconFilter>
+        <span
+          nz-icon
+          nzType="filter"
+          nzTheme="fill"
+          style="color: black; margin-right: 5px"
+        ></span>
+        <p class="filters" (click)="showModalFilter()">Фильтры</p>
+      </ng-template>
     </nz-col>
-    <nz-col [nzSpan]="4">
+    <nz-col >
       <button
         nz-button
         nzType="default"
-        class="tableSettingBtn"
+        class="export-excel-button"
         (click)="showModalSetting()"
       >
         <span
@@ -36,13 +54,13 @@
           nzTheme="outline"
           style="width: 20px; height: 20px"
         ></span>
-        Настройки таблицы
+        Выгрузить в Excel
       </button>
     </nz-col>
   </div>
 </nz-row>
 
-<nz-row>
+<nz-row style="padding: 0 24px 0 24px; background-color: white; width: 100%">
   <app-metadata
     [data]="listOfRandomUser"
     [columns]="columns"

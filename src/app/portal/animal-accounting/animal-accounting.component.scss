@@ -1,6 +1,6 @@
 .container {
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 30px;
+  padding-right: 30px;
   padding-top: 50px;
 }
 .pc-tab > input,
@@ -8,17 +8,15 @@
   display: none;
 }
 
-#users:checked ~ section .users,
-#organizations:checked ~ section .organizations,
-#roles-permissions:checked ~ section .roles-permissions,
-#contracts:checked ~ section .contracts {
+#statistics:checked ~ section .statistics,
+#animal-registry:checked ~ section .animal-registry,
+{
   display: block;
 }
 
-#users:checked ~ nav .users,
-#organizations:checked ~ nav .organizations,
-#roles-permissions:checked ~ nav .roles-permissions,
-#contracts:checked ~ nav .contracts {
+#statistics:checked ~ nav .statistics,
+#animal-registry:checked ~ nav .animal-registry,
+{
   border-radius: 4px 4px 0px 0px;
 }
 
@@ -97,10 +95,9 @@ h1 {
   }
 }
 
-#users:checked ~ nav .users,
-#organizations:checked ~ nav .organizations,
-#roles-permissions:checked ~ nav .roles-permissions,
-#contracts:checked ~ nav .contracts {
+#statistics:checked ~ nav .statistics,
+#animal-registry:checked ~ nav .animal-registry,
+{
   label {
     //SELECTED TAB
     background: white;

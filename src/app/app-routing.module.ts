@@ -8,8 +8,8 @@ import {HomeComponent} from './home/home.component';
 import {LoginComponent} from './login/login.component';
 import {AnimalRegistryComponent} from './portal/animal-accounting/animal-registry/animal-registry.component';
 import {AnimalAccountingComponent} from './portal/animal-accounting/animal-accounting.component';
-import {RolesAccessesComponent} from "./roles-accesses/roles-accesses.component";
-import {AddAnimalsComponent} from "./add-animals/add-animals.component";
+import {RolesAccessesComponent} from "./portal/administration/roles-accesses/roles-accesses.component";
+import {AddAnimalsComponent} from "./portal/animal-accounting/animal-registry/add-animals/add-animals.component";
 
 const routes: Routes = [
   {

@@ -37,35 +37,16 @@
 }
 .setbar {
   justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
   display: flex;
   gap: 24px;
   position: relative;
   margin: 32px 24px 24px 24px;
 }
-::ng-deep .ant-row {
-  display: flex;
-  flex-flow: row wrap;
-  flex-direction: column;
-}
-.frame-2 {
-  align-items: center;
-  background-color: #76c38c;
-  border-radius: 4px;
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  overflow: hidden;
-  padding: 14px 16px;
-  position: relative;
-  width: fit-content;
-}
+
 .addRole{
   border-radius: 4px;
   background-color: #77C48D;
   height: 48px;
-  width: 205px;
   color: white;
   border: 0;
   font-family: Inter, sans-serif;

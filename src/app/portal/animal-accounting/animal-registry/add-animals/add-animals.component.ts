@@ -1,5 +1,5 @@
 import {Component, Injectable} from '@angular/core';
-import metadata from "../application-shared/metadata/table-generator/administration-organizations.json";
+import metadata from "../../../../application-shared/metadata/table-generator/administration-organizations.json";
 import {NzTableQueryParams} from "ng-zorro-antd/table";
 import {catchError, Observable, of} from "rxjs";
 import {HttpClient, HttpParams} from "@angular/common/http";
@@ -28,12 +28,17 @@ export class RandomUserService {
   constructor(private http: HttpClient) {}
 }
 
+
 @Component({
-  selector: 'app-roles-accesses',
-  templateUrl: './roles-accesses.component.html',
-  styleUrls: ['./roles-accesses.component.scss']
+  selector: 'app-add-animals',
+  templateUrl: './add-animals.component.html',
+  styleUrls: ['./add-animals.component.scss']
 })
-export class RolesAccessesComponent {
+export class AddAnimalsComponent {
+  index = 0;
+  disable = false;
+  selectedValue = null;
+
   columns = metadata;
   value?: string;
   total = 1;
@@ -163,4 +168,14 @@ export class RolesAccessesComponent {
   handleModalCancel(): void {
     this.isVisible = false;
   }
+
+
+  onIndexChange(index: number): void {
+    this.index = index;
+  }
+  cardStyle = {
+    width: "100%",
+    height: "100%",
+  };
+
 }

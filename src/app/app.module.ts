@@ -69,8 +69,8 @@ import { AnimalRegistryComponent } from './portal/animal-accounting/animal-regis
 import { AnimalAccountingComponent } from './portal/animal-accounting/animal-accounting.component';
 import {NzTreeViewModule} from "ng-zorro-antd/tree-view";
 import {NzHighlightModule} from "ng-zorro-antd/core/highlight";
-import { RolesAccessesComponent } from './roles-accesses/roles-accesses.component';
-import { AddAnimalsComponent } from './add-animals/add-animals.component';
+import { RolesAccessesComponent } from './portal/administration/roles-accesses/roles-accesses.component';
+import { AddAnimalsComponent } from './portal/animal-accounting/animal-registry/add-animals/add-animals.component';
 
 registerLocaleData(en);
 

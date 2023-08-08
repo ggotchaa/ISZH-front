@@ -1,11 +1,17 @@
-<nz-row style="background: white; height: 70px">
+<nz-row style="background: white;">
   <div class="setbar">
-    <nz-col [nzSpan]="4">
+    <nz-col >
       <button nz-button nzType="primary" class="addRole" (click)="openModal()">
+        <span
+          nz-icon
+          nzType="plus"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
         Добавить роль
       </button>
     </nz-col>
-    <nz-col [nzSpan]="16">
+    <nz-col [nzSpan]="18">
       <nz-input-group
         [nzPrefix]="prefixIconSearch"
         [nzSuffix]="suffixIconFilter"
@@ -35,7 +41,7 @@
         <p class="filters" (click)="showModalFilter()">Фильтры</p>
       </ng-template>
     </nz-col>
-    <nz-col [nzSpan]="4">
+    <nz-col>
       <button
         nz-button
         nzType="default"
@@ -87,7 +93,7 @@
     </nz-col>
   </div>
 </nz-row>
-<nz-row>
+<nz-row style="background-color: white; padding: 0 24px 0 24px; width: 100%">
   <app-metadata
     [data]="listOfRandomUser"
     [columns]="columns"

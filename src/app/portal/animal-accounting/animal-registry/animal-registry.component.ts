@@ -9,7 +9,86 @@ import {auditTime, map} from 'rxjs/operators';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {NzTreeFlatDataSource, NzTreeFlattener} from 'ng-zorro-antd/tree-view';
 import {ActivatedRoute, Router} from "@angular/router";
-import { AdministrationService } from 'src/app/services/administration.service';
+
+interface TreeNode {
+  name: string;
+  children?: TreeNode[];
+}
+
+const TREE_DATA: TreeNode[] = [
+  {
+    name: 'Акмолинская область',
+    children: [{name: '0-0-0'}, {name: '0-0-1'}, {name: '0-0-2'}]
+  },
+  {
+    name: 'Актюбинская область',
+    children: [
+      {
+        name: '0-1-0',
+        children: [{name: '0-1-0-0'}, {name: '0-1-0-1'}]
+      },
+      {
+        name: '0-1-1',
+        children: [{name: '0-1-1-0'}, {name: '0-1-1-1'}]
+      }
+    ]
+  },
+  {
+    name: 'Алматинская область',
+    children: [{name: '0-0-0'}, {name: '0-0-1'}, {name: '0-0-2'}]
+  },
+  {
+    name: 'Атырауская область',
+    children: [{name: '0-0-0'}, {name: '0-0-1'}, {name: '0-0-2'}]
+  },
+  {
+    name: 'Западно-Казахстанская область',
+    children: [{name: '0-0-0'}, {name: '0-0-1'}, {name: '0-0-2'}]
+  },
+  {
+    name: 'Жамбылская область',
+    children: [{name: '0-0-0'}, {name: '0-0-1'}, {name: '0-0-2'}]
+  },
+  {
+    name: 'Карагандинская область',
+    children: [{name: '0-0-0'}, {name: '0-0-1'}, {name: '0-0-2'}]
+  },
+];
+
+interface FlatNode {
+  expandable: boolean;
+  name: string;
+  level: number;
+}
+
+class FilteredTreeResult {
+  constructor(public treeData: TreeNode[], public needsToExpanded: TreeNode[] = []) {
+  }
+}
+
+/**
+ * From https://stackoverflow.com/a/45290208/6851836
+ */
+function filterTreeData(data: TreeNode[], value: string): FilteredTreeResult {
+  const needsToExpanded = new Set<TreeNode>();
+  const _filter = (node: TreeNode, result: TreeNode[]): TreeNode[] => {
+    if (node.name.search(value) !== -1) {
+      result.push(node);
+      return result;
+    }
+    if (Array.isArray(node.children)) {
+      const nodes = node.children.reduce((a, b) => _filter(b, a), [] as TreeNode[]);
+      if (nodes.length) {
+        const parentNode = {...node, children: nodes};
+        needsToExpanded.add(parentNode);
+        result.push(parentNode);
+      }
+    }
+    return result;
+  };
+  const treeData = data.reduce((a, b) => _filter(b, a), [] as TreeNode[]);
+  return new FilteredTreeResult(treeData, [...needsToExpanded]);
+}
 
 interface Animals {
   name: string;
@@ -47,8 +126,6 @@ export class GetAnimalListService {
   styleUrls: ['./animal-registry.component.scss']
 })
 export class AnimalRegistryComponent {
-  constructor(private getListService: GetAnimalListService, private administraionService: AdministrationService) {}
-  
   isVisibleSetting = false;
   isVisible = false;
   selectedValue = null;
@@ -60,11 +137,12 @@ export class AnimalRegistryComponent {
   listOfData: Animals[] = [];
   loading = true;
   columns = animalRegistryTable;
- 
+  flatNodeMap = new Map<FlatNode, TreeNode>();
+  nestedNodeMap = new Map<TreeNode, FlatNode>();
+  expandedNodes: TreeNode[] = [];
   searchValue1 = '';
+  originData$ = new BehaviorSubject(TREE_DATA);
   searchValue$ = new BehaviorSubject<string>('');
-  nodes: any;
-  activeNode: any;
 
 
   selectedMenu: string | undefined;
@@ -76,6 +154,7 @@ export class AnimalRegistryComponent {
 
   showContent(menuItem: string): void {
     this.selectedMenu = menuItem;
+    this.router.navigate([`/${menuItem}`]);
   }
 
 
@@ -84,6 +163,68 @@ export class AnimalRegistryComponent {
   }
 
 
+  transformer = (node: TreeNode, level: number): FlatNode => {
+    const existingNode = this.nestedNodeMap.get(node);
+    const flatNode =
+      existingNode && existingNode.name === node.name
+        ? existingNode
+        : {
+          expandable: !!node.children && node.children.length > 0,
+          name: node.name,
+          level
+        };
+    this.flatNodeMap.set(flatNode, node);
+    this.nestedNodeMap.set(node, flatNode);
+    return flatNode;
+  };
+
+  treeControl = new FlatTreeControl<FlatNode, TreeNode>(
+    node => node.level,
+    node => node.expandable,
+    {
+      trackBy: flatNode => this.flatNodeMap.get(flatNode)!
+    }
+  );
+
+  treeFlattener = new NzTreeFlattener<TreeNode, FlatNode, TreeNode>(
+    this.transformer,
+    node => node.level,
+    node => node.expandable,
+    node => node.children
+  );
+
+  dataSource = new NzTreeFlatDataSource(this.treeControl, this.treeFlattener);
+
+  filteredData$ = combineLatest([
+    this.originData$,
+    this.searchValue$.pipe(
+      auditTime(300),
+      map(value => (this.searchValue1 = value))
+    )
+  ]).pipe(map(([data, value]) => (value ? filterTreeData(data, value) : new FilteredTreeResult(data))));
+
+  constructor(private getListService: GetAnimalListService, private router: Router, private route: ActivatedRoute) {
+    this.filteredData$.subscribe(result => {
+      this.dataSource.setData(result.treeData);
+
+      const hasSearchValue = !!this.searchValue1;
+      if (hasSearchValue) {
+        if (this.expandedNodes.length === 0) {
+          this.expandedNodes = this.treeControl.expansionModel.selected;
+          this.treeControl.expansionModel.clear();
+        }
+        this.treeControl.expansionModel.select(...result.needsToExpanded);
+      } else {
+        if (this.expandedNodes.length) {
+          this.treeControl.expansionModel.clear();
+          this.treeControl.expansionModel.select(...this.expandedNodes);
+          this.expandedNodes = [];
+        }
+      }
+    });
+  }
+
+  hasChild = (_: number, node: FlatNode): boolean => node.expandable;
 
   actions = [
     {name: 'Edit', callback: this.onEdit},
@@ -91,11 +232,20 @@ export class AnimalRegistryComponent {
     {name: 'Изменить', callback: this.openEditModal}
   ];
 
-  
 
   loadDataFromServer(pageIndex: number, pageSize: number): void {
     this.loading = true;
-    this.getListService.getUsers(pageIndex, pageSize).subscribe()
+    this.getListService.getUsers(pageIndex, pageSize).subscribe(
+      (data) => {
+        this.loading = false;
+        this.total = data.results.length;
+        this.listOfData = data.results;
+      },
+      (error) => {
+        this.loading = false;
+        console.error('Error fetching data:', error);
+      }
+    );
   }
 
   onQueryParamsChange(params: NzTableQueryParams): void {
@@ -156,39 +306,8 @@ export class AnimalRegistryComponent {
     console.log(event);
   }
 
-  onExpandChange(e: NzFormatEmitEvent): void {
-    const { node } = e;
-    if (node && node.getChildren().length === 0 && node.isExpanded) {
-      this.administraionService.getStructureById(node.key).subscribe((res) => {
-        if (res.body.length > 0) {
-          node.addChildren(
-            res.body.map((el: { [x: string]: any; id: any; }) => ({
-              //title: el[`name${this.activeLang}`],
-              value: el.id,
-              key: el.id,
-              id: el.id,
-            }))
-          );
-        } else {
-          node.isLeaf = true;
-          node.addChildren([]);
-        }
-      });
-    }
-  }
-
-  getStructrueWithUsers(e: { node: { parentNode: { key: any; }; }; }) {
-    this.activeNode = e;
-    const parentKey = e.node.parentNode ? e.node.parentNode.key : 0;
-    this.administraionService
-      .getOrgStructureWithUsers(parentKey)
-      .subscribe((res) => {
-      });
-    //this.getContracts(e.node.key);
-    //this.activeStructure = e.node.key;
-  }
-
   ngOnInit(): void {
     this.loadDataFromServer(this.pageIndex, this.pageSize);
+    this.selectedTab = this.route.snapshot.firstChild?.routeConfig?.path ?? 'users';
   }
 }
