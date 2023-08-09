@@ -1,53 +1,97 @@
-
-<nz-row style="background: white; height: 65px;">
-    <div class="setbar">
-        <nz-col [nzSpan]="3">
-            <button nz-button nzType="primary" class="addUser" (click)="openModal()">
-                Добавить пользователя
-            </button>
-        </nz-col>
-        <nz-col [nzSpan]="17">
-            <input nz-input placeholder="Поиск" [(ngModel)]="value" />
-        </nz-col>
-        <nz-col [nzSpan]="5">
-            <button nz-button class="export-excel-button">Выгрузить в Excel</button>
-        </nz-col>
-    </div>
+<nz-row style="background: white;">
+  <div class="setbar">
+    <nz-col >
+      <button nz-button nzType="primary" class="addUser" (click)="openModal()">
+        <span
+          nz-icon
+          nzType="plus"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
+        Добавить пользователя
+      </button>
+    </nz-col>
+    <nz-col [nzSpan]="18">
+      <nz-input-group
+        [nzPrefix]="prefixIconSearch"
+        [nzSuffix]="suffixIconFilter"
+        class="searchInput"
+      >
+        <input
+          class="inputText"
+          type="text"
+          nz-input
+          placeholder="Поиск по параметрам"
+        />
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <span
+          nz-icon
+          nzType="search"
+          style="color: #17b9da; margin-right: 5px"
+        ></span>
+      </ng-template>
+      <ng-template #suffixIconFilter>
+        <span
+          nz-icon
+          nzType="filter"
+          nzTheme="fill"
+          style="color: black; margin-right: 5px"
+        ></span>
+        <p class="filters" (click)="showModalFilter()">Фильтры</p>
+      </ng-template>
+    </nz-col>
+    <nz-col>
+      <button
+        nz-button
+        nzType="default"
+        class="export-excel-button"
+        (click)="showModalSetting()"
+      >
+        <span
+          nz-icon
+          nzType="setting"
+          nzTheme="outline"
+          style="width: 20px; height: 20px"
+        ></span>
+        Выгрузить в Excel
+      </button>
+    </nz-col>
+  </div>
 </nz-row>
-
 <nz-row style="background: white; height: 70px;">
-    <div class="service-buttons-container">
-        <nz-col>
-            <button nz-button class="service-button" (click)="openModal()">
-                Общее
-            </button>
-        </nz-col>
-        <nz-col>
-            <button nz-button class="service-button" (click)="openModal()">
-                ИСЖ
-            </button>
-        </nz-col>
-        <nz-col>
-            <button nz-button class="service-button" (click)="openModal()">
-                ПЦ
-            </button>
-        </nz-col>
-        <nz-col>
-            <button nz-button class="service-button" (click)="openModal()">
-                РВЛ
-            </button>
-        </nz-col>
-        <nz-col>
-            <button nz-button class="service-button" (click)="openModal()">
-                РПО
-            </button>
-        </nz-col>
-        <nz-col>
-            <button nz-button class="service-button" (click)="openModal()">
-                ЕАСУ
-            </button>
-        </nz-col>
-    </div>
+  <div class="service-buttons-container">
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        Общее
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        ИСЖ
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        ПЦ
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        РВЛ
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        РПО
+      </button>
+    </nz-col>
+    <nz-col>
+      <button nz-button class="service-button" (click)="openModal()">
+        ЕАСУ
+      </button>
+    </nz-col>
+  </div>
 </nz-row>
 
 <nz-row>

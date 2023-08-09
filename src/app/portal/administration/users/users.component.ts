@@ -14,7 +14,7 @@ import metadata from '../../../application-shared/metadata/table-generator/admin
 export class UsersComponent implements OnInit {
   constructor (private administraionService: AdministrationService) {}
   columns = metadata;
-  
+
   userList: any
   userListFiltered: any;
 
@@ -23,7 +23,7 @@ export class UsersComponent implements OnInit {
   loading = true;
   pageSize = 20;
   pageIndex = 1;
-
+  isVisibleFilter = false;
   isVisible = false;
   modalTitle = '';
   modalContent = '';
@@ -45,6 +45,13 @@ export class UsersComponent implements OnInit {
     this.isVisible = true;
     this.modalTitle = 'Добавить пользователя';
     this.modalContent = '';
+  }
+  showModalFilter(): void {
+    this.isVisibleFilter = true;
+  }
+
+  showModalSetting(): void {
+    // this.isVisibleSetting = true;
   }
 
   handleFormSubmit(): void {
